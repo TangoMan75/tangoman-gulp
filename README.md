@@ -4,7 +4,7 @@ TangoMan Gulp Boilerplate
 Set up your front-end Gulp workflow in minutes
 ----------------------------------------------
 
-Once you've installed project dependecies with `npm install`, you should be ready to go right out the the box in most cases.
+Once you've installed project dependencies with `npm install`, you should be ready to go right out the the box in most cases.
 
 
 
