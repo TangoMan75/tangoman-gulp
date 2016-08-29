@@ -1,0 +1,42 @@
+{
+  "name": "TangoMan Gulp Boilerplate",
+  "version": "2.1.1",
+  "description": "Set up your front-end Gulp workflow in minutes",
+  "main": "gulpfile.js/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangoman75/tangoman-gulp.git"
+  },
+  "keywords": [
+    "tangoman",
+    "gulp",
+    "boilerplate"
+  ],
+  "author": "Matthias Morin <matthias.morin@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.14.0",
+    "del": "latest",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "latest",
+    "gulp-beautify": "latest",
+    "gulp-concat": "latest",
+    "gulp-csscomb": "latest",
+    "gulp-cssnano": "latest",
+    "gulp-inject": "^4.1.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "^2.3.2",
+    "gulp-sequence": "^0.4.5",
+    "gulp-sourcemaps": "latest",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "latest",
+    "gulp-uncss": "latest",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "latest",
+    "require-dir": "latest",
+    "sassdoc": "^2.1.20"
+  }
+}
