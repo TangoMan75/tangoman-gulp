@@ -12,7 +12,7 @@ How to use
 1. Let's state te obvious: First you need to download and install [Node.js](https://nodejs.org/en)
 2. Once you've installed project dependecies with `npm install`, you should be ready to go right out the the box in most cases.
 3. Enter `gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually..
-4. Do a `gulp --production` before you commit to clean the dist directory, and apply specific *production* tasks.
+4. Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
 
 
 
