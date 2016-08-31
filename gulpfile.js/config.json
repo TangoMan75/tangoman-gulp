@@ -1,10 +1,12 @@
 {
 	"project": {
-		"name": "stripped",
+		"name": "main",
 		"version": "0.1.0"
 	},
 	"distFolderName": "dist",
 	"dist": "./dist/",
 	"doc": "./doc/",
-	"src": "./src/"
+	"src": "./src/",
+	"temp": "./temp/",
+	"test": "./test/"
 }

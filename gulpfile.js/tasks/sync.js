@@ -3,12 +3,12 @@
  *
  * Syncs browsers
  * 
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  */
 
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('----------> Init Browser Sync server');
@@ -19,7 +19,7 @@ module.exports = function(gulp, plugins){
 		 */
 		var objConfig = {
 			server: {
-				baseDir: plugins.cfg.dist
+				baseDir: config.dist
 			},
 			options: {
 				reloadDelay: 250

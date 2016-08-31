@@ -1,13 +1,13 @@
 /**
  * uncss Task
  *
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  */
 
 // https://www.npmjs.com/package/gulp-uncss
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('----------> Removing unused CSS');
@@ -17,12 +17,12 @@ module.exports = function(gulp, plugins){
 		 * @type {Object}
 		 */
 		var objOption = {
-			html: [plugins.cfg.dist + 'index.html']
+			html: [config.dist + 'index.html']
 		}
 
-		gulp.src(plugins.cfg.dist + 'css/**/*.css')
+		gulp.src(config.dist + 'css/**/*.css')
 		.pipe(plugins.uncss(objOption))
-		.pipe(gulp.dest(plugins.cfg.dist + 'css/'))
+		.pipe(gulp.dest(config.dist + 'css/'))
 		.on('end', cb)
 	};
 };

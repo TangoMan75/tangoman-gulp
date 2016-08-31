@@ -3,13 +3,13 @@
  *
  * Deletes all files that are not minified
  *
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  * @note           Will run synchronouly since del is not a gulp plugin
  */
 
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('----------> Cleaning');
@@ -26,10 +26,10 @@ module.exports = function(gulp, plugins){
 		 * @type {Array}
 		 */
 		var arTarget = [
-			plugins.cfg.dist + 'css/*.*',
-			'!' + plugins.cfg.dist + 'css/*.min.css',
-			plugins.cfg.dist + 'js/*.*',
-			'!' + plugins.cfg.dist + 'js/*.min.js',
+			config.dist + 'css/*.*',
+			'!' + config.dist + 'css/*.min.css',
+			config.dist + 'js/*.*',
+			'!' + config.dist + 'js/*.min.js',
 		];
 
 		del(arTarget);

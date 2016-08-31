@@ -5,16 +5,16 @@
  *
  * 
  * @note           Attention: Autoprefixer removes embedded sourcemaps!
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  */
 
 /**
  * Handles errors without stopping watch
  * 
  * @param   {Object}  err  Received error
- * @link    https://github.com/gulpjs/gulp/issues/259
+ * @url     https://github.com/gulpjs/gulp/issues/259
  */
 function handleError(err) {
   console.log(err.toString());
@@ -23,7 +23,7 @@ function handleError(err) {
 
 // https://www.npmjs.com/package/gulp-autoprefixer
 // https://www.npmjs.com/package/gulp-plumber
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('----------> Prefixing CSS');
@@ -31,8 +31,8 @@ module.exports = function(gulp, plugins){
 		/**
 		 * Autoprefixer Config
 		 * @type {Object}
-		 * @link https://github.com/postcss/autoprefixer#options
-		 * @link https://github.com/ai/browserslist#queries
+		 * @url  https://github.com/postcss/autoprefixer#options
+		 * @url  https://github.com/ai/browserslist#queries
 		 */
 		var objOptions = {
 			browsers: [
@@ -55,10 +55,10 @@ module.exports = function(gulp, plugins){
 			grid: true,
 		};
 
-		gulp.src(plugins.cfg.dist + 'css/*.css')
+		gulp.src(config.dist + 'css/*.css')
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.autoprefixer(objOptions))
-		.pipe(gulp.dest(plugins.cfg.dist + 'css/'))
+		.pipe(gulp.dest(config.dist + 'css/'))
 		.on('end', cb);
 	};
 };

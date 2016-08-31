@@ -3,13 +3,13 @@
  *
  * Injects minified js and css files from dist directory
  * 
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  */
 
 // https://www.npmjs.com/package/gulp-inject/
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('----------> Injecting into html');
@@ -22,26 +22,26 @@ module.exports = function(gulp, plugins){
 		 */
 		if (plugins.util.env.production) {
 			var arSrc = [
-				plugins.cfg.dist + 'css/reset*.min.css',
-				plugins.cfg.dist + 'css/normalize*.min.css',
-				plugins.cfg.dist + 'css/bootstrap*.min.css',
-				plugins.cfg.dist + 'css/*.min.css',
-				plugins.cfg.dist + 'js/jquery*.min.js',
-				plugins.cfg.dist + 'js/bootstrap*.min.js',
-				plugins.cfg.dist + 'js/masonry*.min.js',
-				plugins.cfg.dist + 'js/*.min.js',
+				config.dist + 'css/reset*.min.css',
+				config.dist + 'css/normalize*.min.css',
+				config.dist + 'css/bootstrap*.min.css',
+				config.dist + 'css/*.min.css',
+				config.dist + 'js/jquery*.min.js',
+				config.dist + 'js/bootstrap*.min.js',
+				config.dist + 'js/masonry*.min.js',
+				config.dist + 'js/*.min.js',
 			];
 		} else {
 			var arSrc = [
-				'!' + plugins.cfg.dist + '**/*.min.*',
-				plugins.cfg.dist + 'css/reset*.css',
-				plugins.cfg.dist + 'css/normalize*.css',
-				plugins.cfg.dist + 'css/bootstrap*.css',
-				plugins.cfg.dist + 'css/*.css',
-				plugins.cfg.dist + 'js/jquery*.js',
-				plugins.cfg.dist + 'js/bootstrap*.js',
-				plugins.cfg.dist + 'js/masonry*.js',
-				plugins.cfg.dist + 'js/*.js',
+				'!' + config.dist + '**/*.min.*',
+				config.dist + 'css/reset*.css',
+				config.dist + 'css/normalize*.css',
+				config.dist + 'css/bootstrap*.css',
+				config.dist + 'css/*.css',
+				config.dist + 'js/jquery*.js',
+				config.dist + 'js/bootstrap*.js',
+				config.dist + 'js/masonry*.js',
+				config.dist + 'js/*.js',
 			];
 		}
 
@@ -52,14 +52,14 @@ module.exports = function(gulp, plugins){
 		var objOptions = {
 			addRootSlash: false,
 			relative: false,
-			ignorePath: plugins.cfg.distFolderName,
+			ignorePath: config.distFolderName,
 		};
 
 		var sources = gulp.src(arSrc, {read: false});
 
-		gulp.src(plugins.cfg.src + 'index.html')
+		gulp.src(config.src + 'index.html')
 		.pipe(plugins.inject(sources, objOptions))
-		.pipe(gulp.dest(plugins.cfg.dist))
+		.pipe(gulp.dest(config.dist))
 		.on('end', cb)
 	};
 };

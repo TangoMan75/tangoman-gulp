@@ -1,20 +1,20 @@
 /**
  * Watch Task
  * 
- * @version        0.1.0 beta
+ * @version        0.2.0
  * @author         Matthias Morin <matthias.morin@gmail.com>
- * @last-modified  18:14 28/08/2016
+ * @last-modified  00:00 31/08/2016
  */
 
 // https://www.npmjs.com/package/gulp-watch
-module.exports = function(gulp, plugins){
+module.exports = function(gulp, plugins, config){
 	return function(){
 
 		console.log('----------> Watching');
 
 		// Changes in the src directory
-		gulp.watch(plugins.cfg.src + 'js/**/*.js', ['js']).on('change', plugins.reload);
-		gulp.watch(plugins.cfg.src + 'scss/**/*.{sass,scss}', ['css']).on('change', plugins.reload);
-		gulp.watch(plugins.cfg.src + '*.{htm,html}', ['inject']).on('change', plugins.reload);
+		gulp.watch(config.src + 'js/**/*.js', ['js']).on('change', plugins.reload);
+		gulp.watch(config.src + 'scss/**/*.{sass,scss}', ['css']).on('change', plugins.reload);
+		gulp.watch(config.src + '*.{htm,html}', ['inject']).on('change', plugins.reload);
 	};
 };
