@@ -14,7 +14,7 @@
  *
  * Easy gulpfile management
  * ========================
- * **TangoMan Gulp Boilerplate** makes your gulpfile.js easier to manage. Split your tasks into easy to spot smaller files instead of scrolling into one super long gulpfile.js.
+ * **TangoMan Gulp Boilerplate** makes your gulpfile.js easier to manage. Split your tasks into smaller files instead of scrolling into one super long gulpfile.js.
  *
  *
  *
@@ -44,7 +44,7 @@
  * Browser synchronisation
  * -----------------------
  *
- * having the ability to refresh automatically your browser while you're developping is a huge time saver.
+ * Having the ability to refresh automatically your browser while you're developping is a huge time saver.
  * Don't bother refreshing your browser or hitting `f5` on your keboard one milion times a day: Awesome plugin [Browser Sync](https://www.npmjs.com/package/browser-sync) does it for you everytime you save your source files.
  *
  *
@@ -74,11 +74,19 @@
  * And if you feel like it, branch, commit and make a pull request to share your task module.
  *
  *
+ *
  * How to use
  * ==========
  *
  * Enter `gulp watch` so start working without worring about lauching tasks indiviually.
  * Add `--production` argument to your tasks so start working without worring about lauching tasks indiviually.
+ *
+ *
+ *
+ * Known bugs
+ * ==========
+ *
+ * It seems like, [Browser Sync](https://www.npmjs.com/package/browser-sync) freezes from time to time for some reason. Restart Gulp for it to work again properly.
  *
  *
  *
@@ -119,7 +127,7 @@
  * [license-image]: https://img.shields.io/badge/Licence-MIT-green.svg
  * [license-url]: LICENSE
  *
- * @version        0.2.0
+ * @version        0.3.0
  * @licence        MIT
  * @author         Matthias Morin <matthias.morin@gmail.com>
  * @last-modified  00:00 31/08/2016
@@ -188,6 +196,7 @@ gulp.task('clean',      getTask('clean'));
 gulp.task('concatjs',   getTask('concatjs'));
 gulp.task('copy',       getTask('copy'));
 gulp.task('csscomb',    getTask('csscomb'));
+gulp.task('imagemin',   getTask('imagemin'));
 gulp.task('inject',     getTask('inject'));
 gulp.task('mincss',     getTask('mincss'));
 gulp.task('minjs',      getTask('minjs'));
@@ -237,6 +246,18 @@ var jsProd = function(cb){
 };
 
 gulp.task('js', plugins.util.env.production ? jsProd : jsDev);
+
+
+
+/**************************************************
+ * HTML Tasks
+ **************************************************/
+
+var html = function(cb){
+	plugins.sequence('space', 'inject', cb);
+};
+
+gulp.task('html', html);
 
 
 

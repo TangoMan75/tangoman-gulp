@@ -4,14 +4,13 @@
  * This file is deprecated but I decided to keep it since it lists a whole bunch of cool plugins.
  *
  * @deprecated
- * @version        0.1.0 beta
+ * @version        0.2.0 beta
  * @author         Matthias Morin <matthias.morin@gmail.com>
  * @last-modified  18:14 28/08/2016
  */
 
-// --------------------------------------------------
 // GENERAL PLUGINS
-// --------------------------------------------------
+// ==================================================
 
 // Loads Gulp module
 var gulp = require('gulp');
@@ -23,6 +22,10 @@ var browserSync = require('browser-sync').create();
 // Streaming concatenation middleware
 // https://www.npmjs.com/package/gulp-concat
 var concat = require('gulp-concat');
+
+// No more wasting precious time on processing unchanged files
+// https://www.npmjs.com/package/gulp-changed
+var changed = require('gulp-changed');
 
 // Delete files and folders
 // https://www.npmjs.com/package/del
@@ -66,9 +69,8 @@ var sassdoc = require('sassdoc');
 
 
 
-// --------------------------------------------------
 // CSS PLUGINS
-// --------------------------------------------------
+// ==================================================
 
 // https://github.com/postcss/autoprefixer#options
 // Adds vendor prefixes to CSS
@@ -101,9 +103,8 @@ var uncss = require('gulp-uncss');
 
 
 
-// --------------------------------------------------
 // JAVASCRIPT PLUGINS
-// --------------------------------------------------
+// ==================================================
 
 // Asset beautification using node-beautify
 // https://www.npmjs.com/package/gulp-beautify
@@ -132,10 +133,18 @@ var jsdoc = require('gulp-jsdoc');
 
 
 
-// --------------------------------------------------
 // HTML PLUGINS
-// --------------------------------------------------
+// ==================================================
 
 // Webcomponent injection plugin
 // https://www.npmjs.com/package/gulp-inject
 var inject = require('gulp-inject');
+
+
+
+// IMAGE PLUGINS
+// ==================================================
+
+// Minify PNG, JPEG, GIF and SVG images
+// https://www.npmjs.com/package/gulp-imagemin
+var imagemin = require('gulp-imagemin');
