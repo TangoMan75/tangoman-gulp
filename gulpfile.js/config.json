@@ -5,6 +5,7 @@
 	},
 	"distFolderName": "dist",
 	"dist": "./dist/",
+	"assets": "./src/assets/",
 	"doc": "./doc/",
 	"src": "./src/",
 	"temp": "./temp/",
