@@ -87,6 +87,13 @@ And if you feel like it, branch, commit and make a pull request to share your ta
 
 
 
+Known bugs
+==========
+
+It seems like, [Browser Sync](https://www.npmjs.com/package/browser-sync) freezes from time to time for some reason. Restart Gulp for it to work again properly.
+
+
+
 Inspiration
 ===========
 
