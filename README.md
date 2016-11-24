@@ -123,7 +123,7 @@ License
 
 Copyrights (c) 2016 Matthias Morin
 
-[![License][license-image]][license-MIT]
+[![License][license-MIT]][license-url]
 Distributed under the MIT license.
 
 If you like **TangoMan Gulp Boilerplate** please star!
