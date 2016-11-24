@@ -79,7 +79,7 @@ Versatile
 =========
 
 I have a set of favorite Gulp plugins, but if you need to use different ones, go ahead and write your own task file.
-As ong as you maintain the same directory structure you should be fine.
+As long as you maintain the same directory structure you should be fine.
 Your Gulps plugin should be loaded automatically and will be availlable in the `plugins.your-plugin-name` object, while configuration from the `config.json` will be availlable in the `config.required-varible-name` object.
 **Have fun!**
 
