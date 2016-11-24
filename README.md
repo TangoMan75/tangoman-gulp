@@ -123,13 +123,15 @@ License
 
 Copyrights (c) 2016 Matthias Morin
 
-[![License][license-image]][license-url]
+[![License][license-image]][license-MIT]
 Distributed under the MIT license.
-
 
 If you like **TangoMan Gulp Boilerplate** please star!
 And follow me on GitHub: [TangoMan75](https://github.com/TangoMan75)
 ... And check my other cool projects.
 
-[license-image]: https://img.shields.io/badge/Licence-MIT-green.svg
+[tangoman.free.fr](http://tangoman.free.fr)
+
+[license-GPL]: https://img.shields.io/badge/Licence-GPLv3.0-green.svg
+[license-MIT]: https://img.shields.io/badge/Licence-MIT-green.svg
 [license-url]: LICENSE
