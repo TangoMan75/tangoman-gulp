@@ -2,7 +2,7 @@
  * Watch Task
  * 
  * @version        0.4.0
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  22:45 31/08/2016
  */
 

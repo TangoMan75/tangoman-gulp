@@ -5,7 +5,7 @@
  *
  * @deprecated
  * @version        0.2.0 beta
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  18:14 28/08/2016
  */
 

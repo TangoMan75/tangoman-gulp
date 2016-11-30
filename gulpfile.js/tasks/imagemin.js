@@ -4,7 +4,7 @@
  * Optimizes images from `.src/assets/img/` folder
  * 
  * @version        0.1.0
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  22:41 31/08/2016
  */
 

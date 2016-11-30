@@ -5,7 +5,7 @@
  * This task uses a callback and all tasks will run asynchronously
  * 
  * @version        0.3.0
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  20:00 08/09/2016
  */
 

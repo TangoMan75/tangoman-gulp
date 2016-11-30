@@ -7,7 +7,7 @@
  *
  * @version        0.3.0
  * @licence        MIT
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  00:00 31/08/2016
  */
 

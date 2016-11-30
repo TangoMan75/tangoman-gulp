@@ -4,7 +4,7 @@
  * Concatenates all .js files from config.src + 'js/src/' to config.dist + 'js/main.js'
  *
  * @version        0.2.0
- * @author         Matthias Morin <matthias.morin@gmail.com>
+ * @author         Matthias Morin <tangoman@free.fr>
  * @last-modified  00:00 31/08/2016
  */
 

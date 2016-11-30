@@ -12,7 +12,7 @@
     "gulp",
     "boilerplate"
   ],
-  "author": "Matthias Morin <matthias.morin@gmail.com>",
+  "author": "Matthias Morin <tangoman@free.fr>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.7.1",
