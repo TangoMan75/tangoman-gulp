@@ -1,5 +1,5 @@
 {
-  "name": "TangoMan Gulp Boilerplate",
+  "name": "tangoman-gulp",
   "version": "0.2.0",
   "description": "Set up your front-end Gulp workflow in minutes",
   "main": "gulpfile.js/index.js",
