@@ -3,10 +3,9 @@
  *
  * Generates SASS documentation
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
- * @note           Will run synchronouly since sassdoc is not a gulp plugin
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
+ * @note     Will run synchronouly since sassdoc is not a gulp plugin
  */
 
 // https://www.npmjs.com/package/sassdoc
@@ -22,7 +21,7 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Object}
 		 */
 		var objDestination = {
-			dest: config.doc + 'sass/',
+			dest: config.dest.doc + '/sass/',
 		};
 
 		/**
@@ -31,7 +30,7 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.src + 'scss/**/*.scss',
+			config.src.scss + '/**/*.scss',
 		];
 
 		gulp.src(arSrc)

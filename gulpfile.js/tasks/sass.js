@@ -1,13 +1,12 @@
 /**
  * SASS and Sourcemap Task
  *
- * Compiles SASS or SCSS and generates sourcemap from config.src + 'scss' to config.dist + 'css/'
+ * Compiles SASS or SCSS and generates sourcemap
  *
  * Use `gulp sass --production` to disable sourcemaps
  *
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 /**
@@ -42,12 +41,12 @@ module.exports = function(gulp, plugins, config){
 			outputStyle: 'expanded',
 		};
 
-		gulp.src(config.src + 'scss/**/*.{sass,scss}')
+		gulp.src(config.src.scss + '/**/*.{sass,scss}')
 		.pipe(!plugins.util.env.production ? plugins.sourcemaps.init('debug') : plugins.util.noop())
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.sass(objOptions))
 		.pipe(!plugins.util.env.production ? plugins.sourcemaps.write() : plugins.util.noop())
-		.pipe(gulp.dest(config.dist + 'css/'))
+		.pipe(gulp.dest(config.dest.scss))
 		.on('end', cb);
 	};
 };

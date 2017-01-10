@@ -4,10 +4,9 @@
  * Prefixes every css file in the dist directory
  *
  * 
- * @note           Attention: Autoprefixer removes embedded sourcemaps!
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @note     Attention: Autoprefixer removes embedded sourcemaps!
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 /**
@@ -55,10 +54,10 @@ module.exports = function(gulp, plugins, config){
 			grid: true,
 		};
 
-		gulp.src(config.dist + 'css/*.css')
+		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.autoprefixer(objOptions))
-		.pipe(gulp.dest(config.dist + 'css/'))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb);
 	};
 };

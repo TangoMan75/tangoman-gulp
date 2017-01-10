@@ -1,1 +1,9 @@
-node_modules/
+# exclude everything except !
+/*
+!gulpfile.js
+!.gitattributes
+!.gitignore
+!GULP_PLUGINS.md
+!LICENSE
+!package.json
+!README.md

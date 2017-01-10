@@ -1,9 +1,8 @@
 /**
  * Minify CSS Task
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 // https://www.npmjs.com/package/gulp-cssnano
@@ -18,14 +17,14 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.dist + 'css/*.css',
-			'!' + config.dist + 'css/*.min.css',
+			config.src.css + '/*.css',
+			'!' + config.src.css + '/*.min.css',
 		];
 
 		gulp.src(arSrc)
 		.pipe(plugins.rename({ suffix: '.min' }))
 		.pipe(plugins.cssnano())
-		.pipe(gulp.dest(config.dist + 'css/'))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb)
 	};
 };

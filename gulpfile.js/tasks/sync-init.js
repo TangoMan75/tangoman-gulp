@@ -2,10 +2,10 @@
  * Browser Sync
  *
  * Syncs browsers
+ * This task is probably useless when you work with symfony
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 module.exports = function(gulp, plugins, config){
@@ -19,7 +19,7 @@ module.exports = function(gulp, plugins, config){
 		 */
 		var objConfig = {
 			server: {
-				baseDir: config.dist
+				baseDir: config.dest
 			},
 			options: {
 				reloadDelay: 250

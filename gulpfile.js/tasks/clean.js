@@ -1,12 +1,11 @@
 /**
  * Cleaning Task
  *
- * Deletes all files that are not minified
+ * Deletes all files that are not minified in the dist folder
  *
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
- * @note           Will run synchronouly since del is not a gulp plugin
+* @version  1.0.0
+* @author   Matthias Morin <tangoman@free.fr>
+* @note     Will run synchronouly since del is not a gulp plugin
  */
 
 module.exports = function(gulp, plugins, config){
@@ -26,10 +25,10 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arTarget = [
-			config.dist + 'css/*.*',
-			'!' + config.dist + 'css/*.min.css',
-			config.dist + 'js/*.*',
-			'!' + config.dist + 'js/*.min.js',
+			config.dest.css + '/*.*',
+			'!' + config.dest.css + '/*.min.css',
+			config.dest.js + '/*.*',
+			'!' + config.dest.js + '/*.min.js',
 		];
 
 		del(arTarget);

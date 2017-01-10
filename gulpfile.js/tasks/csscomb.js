@@ -3,9 +3,8 @@
  *
  * Formats CSS from dist folder
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 // https://www.npmjs.com/package/gulp-csscomb
@@ -14,9 +13,9 @@ module.exports = function(gulp, plugins, config){
 
 		console.log('----------> Combing CSS');
 
-		gulp.src(config.dist + 'css/*.css')
+		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.csscomb())
-		.pipe(gulp.dest(config.dist + 'css/'))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb)
 	};
 };

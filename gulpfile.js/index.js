@@ -5,10 +5,9 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version        0.3.0
- * @licence        MIT
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @licence  MIT
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 
@@ -68,44 +67,46 @@ function getTask(task){
 
 /**************************************************
  * Individual tasks
+ * 'command' -> 'file'
  **************************************************/
 
-gulp.task('clean',      getTask('clean'));
-gulp.task('concatjs',   getTask('concatjs'));
-gulp.task('copy',       getTask('copy'));
-gulp.task('csscomb',    getTask('csscomb'));
-gulp.task('imagemin',   getTask('imagemin'));
-gulp.task('inject',     getTask('inject'));
-gulp.task('mincss',     getTask('mincss'));
-gulp.task('minjs',      getTask('minjs'));
-gulp.task('prefix',     getTask('prefix'));
-gulp.task('sass',       getTask('sass'));
-gulp.task('sassdoc',    getTask('sassdoc'));
-gulp.task('space',      getTask('space'));
-gulp.task('startwatch', getTask('watch'));
-gulp.task('sync',       getTask('sync'));
-gulp.task('test',       getTask('test'));
-gulp.task('uncss',      getTask('uncss'));
+gulp.task('clean',           getTask('clean'));
+gulp.task('concatjs',        getTask('concatjs'));
+gulp.task('copy',            getTask('copy'));
+gulp.task('csscomb',         getTask('csscomb'));
+gulp.task('imagemin',        getTask('imagemin'));
+gulp.task('inject',          getTask('inject'));
+gulp.task('mincss',          getTask('mincss'));
+gulp.task('minjs',           getTask('minjs'));
+gulp.task('prefix',          getTask('prefix'));
+gulp.task('sass',            getTask('sass'));
+gulp.task('sassdoc',         getTask('sassdoc'));
+gulp.task('space',           getTask('space'));
+gulp.task('watch',           getTask('watch'));
+gulp.task('startwatch-sync', getTask('watch-sync'));
+gulp.task('sync-init',       getTask('sync-init'));
+gulp.task('dump',            getTask('dump'));
+gulp.task('uncss',           getTask('uncss'));
 
 
 
 /**************************************************
- * Watch
+ * Watch-sync
  **************************************************/
 
-gulp.task('watch', plugins.sequence('sync', 'startwatch'));
+gulp.task('watch-sync', plugins.sequence('sync-init', 'startwatch-sync'));
 
 
 
 /**************************************************
- * CSS Tasks
+ * CSS sequences
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('space', 'sass', 'inject', cb);
+	plugins.sequence('space', 'sass', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('space', 'clean', 'sass', 'prefix', 'mincss', 'inject', cb);
+	plugins.sequence('space', 'clean', 'sass', 'prefix', 'mincss', cb);
 };
 
 gulp.task('css', plugins.util.env.production ? cssProd : cssDev);
@@ -113,29 +114,17 @@ gulp.task('css', plugins.util.env.production ? cssProd : cssDev);
 
 
 /**************************************************
- * Javascript Tasks
+ * Javascript sequences
  **************************************************/
 
 var jsDev  = function(cb){
-	plugins.sequence('space', 'concatjs', 'inject', cb);
+	plugins.sequence('space', 'concatjs', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('space', 'clean', 'concatjs', 'minjs', 'inject', cb);
+	plugins.sequence('space', 'clean', 'concatjs', 'minjs', cb);
 };
 
 gulp.task('js', plugins.util.env.production ? jsProd : jsDev);
-
-
-
-/**************************************************
- * HTML Tasks
- **************************************************/
-
-var html = function(cb){
-	plugins.sequence('space', 'inject', cb);
-};
-
-gulp.task('html', html);
 
 
 
@@ -144,10 +133,10 @@ gulp.task('html', html);
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['space', 'sass', 'concatjs'], 'inject', cb);
+	plugins.sequence(['space', 'sass', 'concatjs'], cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['space', 'clean', 'sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'inject', cb);
+	plugins.sequence(['space', 'clean', 'sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], cb);
 };
 
 gulp.task('default', plugins.util.env.production ? defaultProd : defaultDev);

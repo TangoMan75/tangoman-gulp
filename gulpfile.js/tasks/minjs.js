@@ -1,9 +1,8 @@
 /**
  * Minify Javascript Task
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 /**
@@ -29,15 +28,15 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.dist + 'js/*.js',
-			'!' + config.dist + 'js/*.min.js',
+			config.src.js + '/*.js',
+			'!' + config.src.js + '/*.min.js',
 		];
 
 		gulp.src(arSrc)
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.uglify())
 		.pipe(plugins.rename({suffix: '.min'}))
-		.pipe(gulp.dest(config.dist + 'js/'))
+		.pipe(gulp.dest(config.dest.js))
 		.on('end', cb)
 	};
 };

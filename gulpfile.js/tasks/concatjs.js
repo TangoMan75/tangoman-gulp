@@ -1,11 +1,10 @@
 /**
  * Javascript Task
  *
- * Concatenates all .js files from config.src + 'js/src/' to config.dist + 'js/main.js'
+ * Concatenates all .js files
  *
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 /**
@@ -32,13 +31,13 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.src + 'js/**/*.js'
+			config.src.js + '/**/*.js'
 		];
 
 		gulp.src(arSrc)
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.js'))
-		.pipe(gulp.dest(config.dist + 'js/'))
+		.pipe(gulp.dest(config.dest.js))
 		.on('end', cb);
 	};
 };

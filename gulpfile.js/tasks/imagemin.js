@@ -3,9 +3,8 @@
  *
  * Optimizes images from `.src/assets/img/` folder
  * 
- * @version        0.1.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  22:41 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 // https://www.npmjs.com/package/gulp-imagemin
@@ -13,10 +12,10 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
- 	gulp.src(config.src + 'assets/img/**/*.{gif,jpeg,jpg,png,svg}')
-		.pipe(plugins.changed(config.dist))
+ 	gulp.src(config.src.img + '/**/*.{gif,jpeg,jpg,png,svg}')
+		.pipe(plugins.changed(config.dest.img))
 		.pipe(plugins.imagemin())
-		.pipe(gulp.dest(config.dist + 'img/'))
+		.pipe(gulp.dest(config.dest.img))
 		.on('end', cb);
 	};
 };

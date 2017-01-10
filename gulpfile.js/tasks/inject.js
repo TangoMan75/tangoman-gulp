@@ -2,10 +2,10 @@
  * HTML Task
  *
  * Injects minified js and css files from dist directory
+ * This task is probably useless when you work with a twig template
  * 
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version  1.0.0
+ * @author   Matthias Morin <tangoman@free.fr>
  */
 
 // https://www.npmjs.com/package/gulp-inject/
@@ -22,26 +22,26 @@ module.exports = function(gulp, plugins, config){
 		 */
 		if (plugins.util.env.production) {
 			var arSrc = [
-				config.dist + 'css/reset*.min.css',
-				config.dist + 'css/normalize*.min.css',
-				config.dist + 'css/bootstrap*.min.css',
-				config.dist + 'css/*.min.css',
-				config.dist + 'js/jquery*.min.js',
-				config.dist + 'js/bootstrap*.min.js',
-				config.dist + 'js/masonry*.min.js',
-				config.dist + 'js/*.min.js',
+				config.dest.css + '/reset*.min.css',
+				config.dest.css + '/normalize*.min.css',
+				config.dest.css + '/bootstrap*.min.css',
+				config.dest.css + '/*.min.css',
+				config.dest.js + 'jquery*.min.js',
+				config.dest.js + 'bootstrap*.min.js',
+				config.dest.js + 'masonry*.min.js',
+				config.dest.js + '*.min.js',
 			];
 		} else {
 			var arSrc = [
-				'!' + config.dist + '**/*.min.*',
-				config.dist + 'css/reset*.css',
-				config.dist + 'css/normalize*.css',
-				config.dist + 'css/bootstrap*.css',
-				config.dist + 'css/*.css',
-				config.dist + 'js/jquery*.js',
-				config.dist + 'js/bootstrap*.js',
-				config.dist + 'js/masonry*.js',
-				config.dist + 'js/*.js',
+				'!' + config.dest + '**/*.min.*',
+				config.dest.css + '/reset*.css',
+				config.dest.css + '/normalize*.css',
+				config.dest.css + '/bootstrap*.css',
+				config.dest.css + '/*.css',
+				config.dest.js + 'jquery*.js',
+				config.dest.js + 'bootstrap*.js',
+				config.dest.js + 'masonry*.js',
+				config.dest.js + '*.js',
 			];
 		}
 
@@ -52,14 +52,14 @@ module.exports = function(gulp, plugins, config){
 		var objOptions = {
 			addRootSlash: false,
 			relative: false,
-			ignorePath: config.distFolderName,
+			ignorePath: config.folderName,
 		};
 
 		var sources = gulp.src(arSrc, {read: false});
 
-		gulp.src(config.src + 'index.html')
+		gulp.src(config.src.index)
 		.pipe(plugins.inject(sources, objOptions))
-		.pipe(gulp.dest(config.dist))
+		.pipe(gulp.dest(config.dest))
 		.on('end', cb)
 	};
 };

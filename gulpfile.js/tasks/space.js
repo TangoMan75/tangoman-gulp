@@ -1,9 +1,8 @@
 /**
  * Adds some line feeds in the console
  *
- * @version        0.2.0
- * @author         Matthias Morin <tangoman@free.fr>
- * @last-modified  00:00 31/08/2016
+ * @version 0.2.1
+ * @author  Matthias Morin <tangoman@free.fr>
  */
 
 module.exports = function(gulp, plugins, config){

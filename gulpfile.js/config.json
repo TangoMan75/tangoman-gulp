@@ -3,11 +3,30 @@
 		"name": "main",
 		"version": "0.1.0"
 	},
-	"distFolderName": "dist",
-	"dist": "./dist/",
-	"assets": "./src/assets/",
-	"doc": "./doc/",
-	"src": "./src/",
-	"temp": "./temp/",
-	"test": "./test/"
+	"folderName": "dist",
+	"src": {
+		"src": "./src",
+		"css": "./src/css",
+		"scss": "./src/scss",
+		"js": "./src/js",
+		"img": "./src/img",
+		"fonts": "./src/fonts",
+		"assets": "./src/assets",
+		"vendor": "./src/vendor",
+		"index": "./src/index.html"
+	},
+	"dest": {
+		"dest": "./dist",
+		"css": "./dist/css",
+		"scss": "./dist/scss",
+		"js": "./dist/js",
+		"img": "./dist/img",
+		"fonts": "./dist/fonts",
+		"assets": "./dist/assets",
+		"vendor": "./dist/vendor",
+		"doc": "./doc",
+		"temp": "./temp",
+		"test": "./test",
+		"index": "./index.html"
+	},
 }
