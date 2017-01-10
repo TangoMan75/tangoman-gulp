@@ -13,8 +13,82 @@ How to use
 2. Then install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 3. Copy **TangoMan Gulp Boilerplate** into your web directory.
 4. Once you've installed project dependencies with `npm install`, you should be ready to go right out the the box in most cases.
-5. Enter `gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually..
-6. Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
+5. Open a command window in your web directory.
+6. Enjoy... (See below for availlable commands)
+
+
+
+Availlable commands
+===================
+
+Enter `gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
+Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
+
+
+```cmd
+$ clean
+```
+
+```cmd
+$ concatjs
+```
+
+```cmd
+$ copy
+```
+
+```cmd
+$ csscomb
+```
+
+```cmd
+$ imagemin
+```
+
+```cmd
+$ inject
+```
+
+```cmd
+$ mincss
+```
+
+```cmd
+$ minjs
+```
+
+```cmd
+$ prefix
+```
+
+```cmd
+$ sass
+```
+
+```cmd
+$ sassdoc
+```
+
+```cmd
+$ dump
+```
+
+```cmd
+$ uncss
+```
+
+
+
+Sequences
+---------
+
+```cmd
+$ watch
+```
+
+```cmd
+$ sync
+```
 
 
 
@@ -53,7 +127,7 @@ Browser synchronisation
 -----------------------
 
 Having the ability to refresh automatically your browser while you're developping is a huge time saver.
-Don't bother refreshing your browser or hitting `f5` on your keboard ten million times a day: 
+Don't bother refreshing your browser or hitting `f5` on your keboard ten million times a day:
 
 Awesome plugin `Browser Sync` [https://www.npmjs.com/package/browser-sync](https://www.npmjs.com/package/browser-sync) does it for you everytime you save your source files.
 
@@ -188,7 +262,7 @@ Inspiration
 ===========
 
 I was inspired by excellent [http://code.viget.com](http://code.viget.com) Gulp starter [https://github.com/vigetlabs/gulp-starter](https://github.com/vigetlabs/gulp-starter)
-Though I found it quite hard to configure, so I made **TangoMan Gulp Boilerplate** simpler. 
+Though I found it quite hard to configure, so I made **TangoMan Gulp Boilerplate** simpler.
 
 When you need to configure any particular task, just edit _task.js_ directly in the _tasks_ folder.
 

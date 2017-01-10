@@ -70,23 +70,23 @@ function getTask(task){
  * 'command' -> 'file'
  **************************************************/
 
-gulp.task('clean',           getTask('clean'));
-gulp.task('concatjs',        getTask('concatjs'));
-gulp.task('copy',            getTask('copy'));
-gulp.task('csscomb',         getTask('csscomb'));
-gulp.task('imagemin',        getTask('imagemin'));
-gulp.task('inject',          getTask('inject'));
-gulp.task('mincss',          getTask('mincss'));
-gulp.task('minjs',           getTask('minjs'));
-gulp.task('prefix',          getTask('prefix'));
-gulp.task('sass',            getTask('sass'));
-gulp.task('sassdoc',         getTask('sassdoc'));
-gulp.task('space',           getTask('space'));
-gulp.task('watch',           getTask('watch'));
-gulp.task('startwatch-sync', getTask('watch-sync'));
-gulp.task('sync-init',       getTask('sync-init'));
-gulp.task('dump',            getTask('dump'));
-gulp.task('uncss',           getTask('uncss'));
+gulp.task('clean',      getTask('clean'));
+gulp.task('concatjs',   getTask('concatjs'));
+gulp.task('copy',       getTask('copy'));
+gulp.task('csscomb',    getTask('csscomb'));
+gulp.task('imagemin',   getTask('imagemin'));
+gulp.task('inject',     getTask('inject'));
+gulp.task('mincss',     getTask('mincss'));
+gulp.task('minjs',      getTask('minjs'));
+gulp.task('prefix',     getTask('prefix'));
+gulp.task('sass',       getTask('sass'));
+gulp.task('sassdoc',    getTask('sassdoc'));
+gulp.task('space',      getTask('space'));
+gulp.task('watch',      getTask('watch'));
+gulp.task('watch-sync', getTask('watch-sync'));
+gulp.task('sync-init',  getTask('sync-init'));
+gulp.task('dump',       getTask('dump'));
+gulp.task('uncss',      getTask('uncss'));
 
 
 
@@ -94,7 +94,7 @@ gulp.task('uncss',           getTask('uncss'));
  * Watch-sync
  **************************************************/
 
-gulp.task('watch-sync', plugins.sequence('sync-init', 'startwatch-sync'));
+gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
 
 
 
