@@ -10,10 +10,11 @@ How to use
 ==========
 
 1. You need to download and install [Node.js](https://nodejs.org/en) first.
-2. Install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-3. Once you've installed project dependencies with `npm install`, you should be ready to go right out the the box in most cases.
-4. Enter `gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually..
-5. Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
+2. Then install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+3. Copy **TangoMan Gulp Boilerplate** into your web directory.
+4. Once you've installed project dependencies with `npm install`, you should be ready to go right out the the box in most cases.
+5. Enter `gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually..
+6. Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
 
 
 
