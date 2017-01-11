@@ -67,10 +67,20 @@ config = require('./config.json');
  * Browser Sync
  **************************************************/
 
-// Live CSS Reload & Browser Syncing
+// Browser Syncing
 // https://www.npmjs.com/package/browser-sync
 plugins.browserSync = require('browser-sync').create();
 plugins.reload      = plugins.browserSync.reload;
+
+
+
+/**************************************************
+ * Live Reload
+ **************************************************/
+
+// Live Reload
+// https://www.npmjs.com/package/gulp-livereload
+plugins.livereload = require('gulp-livereload');
 
 
 
@@ -127,10 +137,11 @@ gulp.task('watch-sync', getTask('watch-sync'));
 
 
 /**************************************************
- * Watch-sync
+ * Watch Reload and Browser-Sync
  **************************************************/
 
 gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
+gulp.task('reload', getTask('watch-reload'));
 
 
 

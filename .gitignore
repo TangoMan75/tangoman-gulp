@@ -1,8 +1,8 @@
 # exclude everything except !
 /*
+gulpfile.js/config.json
 !.gitattributes
 !.gitignore
-!config-sample.json
 !GULP_PLUGINS.md
 !gulpfile.js
 !LICENSE

@@ -1,11 +1,12 @@
 /**
  * Watcher with browser-sync auto reload
  * 
- * @version  0.4.0
+ * @version  0.4.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
 // https://www.npmjs.com/package/gulp-watch
+// https://www.npmjs.com/package/browser-sync
 module.exports = function(gulp, plugins, config){
 	return function(){
 
