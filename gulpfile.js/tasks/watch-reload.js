@@ -1,7 +1,7 @@
 /**
  * Watcher with live reload
  * 
- * @version  0.1.0
+ * @version  0.1.0 beta
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
