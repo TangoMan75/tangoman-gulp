@@ -12,13 +12,6 @@ Easy gulpfile management
 
 
 
-It's faster
-===========
-
-Fantastic Gulp module `gulp-load-plugins` [https://www.npmjs.com/package/gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins) allows to load each and every gulp plugins in your _package.json_ automatically, and stores everyone of them in the `plugins` object **once and for all** which is way more efficient than the `gulp-require-dir` [https://www.npmjs.com/package/gulp-require-dir](https://www.npmjs.com/package/gulp-require-dir) method.
-
-
-
 Features
 ========
 
@@ -26,7 +19,7 @@ Syncronous tasks
 ----------------
 
 **TangoMan Gulp Boilerplate** makes it easier to create synchronous set of tasks.
-For example you don't want your prefix task to start before sass compilation has ended, which would result in your css overwriting the prefixed version.
+For example you don't want your prefix task to start before sass compilation has ended, which would result in the sass compiler to overwrite the prefixed version.
 
 Fantastic plugin `gulp-sequence` [https://www.npmjs.com/package/gulp-sequence](https://www.npmjs.com/package/gulp-sequence) allows to easily create macro sets of tasks **in a specified sequence**.
 
@@ -98,7 +91,6 @@ You can configure the name of the project web directory:
 	"folderName": "dist",
 ```
 This value is used by _inject.js_ to rewrite correct relative pathes in html.
-
 
 And here you can configure your project source and distribution folders:
 

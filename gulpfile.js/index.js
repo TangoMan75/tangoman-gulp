@@ -19,8 +19,10 @@
 // https://www.npmjs.com/package/gulp
 var gulp = require('gulp');	// The streaming build system
 
+// Automatically load any gulp plugins in your package.json
 // https://www.npmjs.com/package/gulp-load-plugins
-var plugins = require('gulp-load-plugins')();	// Automatically load any gulp plugins in your package.json
+// Which is way more efficient than https://www.npmjs.com/package/gulp-require-dir method
+var plugins = require('gulp-load-plugins')();	
 
 
 
@@ -140,7 +142,7 @@ var cssDev  = function(cb){
 	plugins.sequence('sass', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('clean', 'sass', 'prefix', 'mincss', cb);
+	plugins.sequence('sass', 'prefix', 'mincss', 'clean', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
@@ -155,7 +157,7 @@ var jsDev  = function(cb){
 	plugins.sequence('concatjs', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('clean', 'concatjs', 'minjs', cb);
+	plugins.sequence('concatjs', 'minjs', 'clean', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
