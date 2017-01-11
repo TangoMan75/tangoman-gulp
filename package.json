@@ -1,6 +1,6 @@
 {
   "name": "tangoman-gulp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TangoMan Gul Boilerplate: Set up your front-end Gulp workflow in minutes",
   "main": "gulpfile.js/index.js",
   "repository": {

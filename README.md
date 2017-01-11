@@ -24,27 +24,27 @@ Enter `gulp watch` to start gulp listening to any change in your source director
 Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
 
 
-`$ clean`    : Deletes all files that are not minified in the dist folder.
-`$ concatjs` : Concatenates all .js files.
-`$ copy`     : Copies all files from your source folder into distribution folder.
-`$ csscomb`  : Formats CSS.
-`$ dump`     : Dumps config and plugins variables in console.
-`$ imagemin` : Optimize PNG, JPEG, GIF and SVG images.
-`$ inject`   : Injects minified js and css files into html.
-`$ mincss`   : Minifies CSS.
-`$ minjs`    : Minifies javascript.
-`$ prefix`   : Adds vendor prefixes to CSS.
-`$ sass`     : Compiles SASS and SCSS files, and generates sourcemap.
-`$ sassdoc`  : Generates SASS documentation.
-`$ strip`    : Removes console.logs from javascript.
-`$ uncss`    : Remove unused CSS selectors.
+ - `$ clean`    : Deletes all files that are not minified in the dist folder.
+ - `$ concatjs` : Concatenates all .js files.
+ - `$ copy`     : Copies all files from your source folder into distribution folder.
+ - `$ csscomb`  : Formats CSS.
+ - `$ dump`     : Dumps config and plugins variables in console.
+ - `$ imagemin` : Optimize PNG, JPEG, GIF and SVG images.
+ - `$ inject`   : Injects minified js and css files into html.
+ - `$ mincss`   : Minifies CSS.
+ - `$ minjs`    : Minifies javascript.
+ - `$ prefix`   : Adds vendor prefixes to CSS.
+ - `$ sass`     : Compiles SASS and SCSS files, and generates sourcemap.
+ - `$ sassdoc`  : Generates SASS documentation.
+ - `$ strip`    : Removes console.logs from javascript.
+ - `$ uncss`    : Remove unused CSS selectors.
 
 
 Sequences
 ---------
 
-`$ watch` : Starts watcher on CSS, JS, IMG, and HTML files.
-`$ sync`  : Starts watcher and browser syncronisation.
+ - `$ watch` : Starts watcher on CSS, JS, IMG, and HTML files.
+ - `$ sync`  : Starts watcher and browser syncronisation.
 
 
 
