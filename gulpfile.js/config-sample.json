@@ -18,7 +18,7 @@
 	"dest": {
 		"dest": "./dist",
 		"css": "./dist/css",
-		"scss": "./dist/scss",
+		"scss": "./dist/css",
 		"js": "./dist/js",
 		"img": "./dist/img",
 		"fonts": "./dist/fonts",

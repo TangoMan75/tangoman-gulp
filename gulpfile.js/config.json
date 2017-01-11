@@ -16,17 +16,17 @@
 		"index": "./src/index.html"
 	},
 	"dest": {
-		"dest": "./",
-		"css": "./css",
-		"scss": "./scss",
-		"js": "./js",
-		"img": "./img",
-		"fonts": "./fonts",
-		"assets": "./assets",
-		"vendor": "./vendor",
-		"doc": "./doc",
-		"temp": "./temp",
-		"test": "./test",
-		"index": "./index.html"
+		"dest": "./dist",
+		"css": "./dist/css",
+		"scss": "./dist/css",
+		"js": "./dist/js",
+		"img": "./dist/img",
+		"fonts": "./dist/fonts",
+		"assets": "./dist/assets",
+		"vendor": "./dist/vendor",
+		"doc": "./dist/doc",
+		"temp": "./dist/temp",
+		"test": "./dist/test",
+		"index": "./dist/index.html"
 	}
 }

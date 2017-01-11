@@ -30,19 +30,20 @@ module.exports = function(gulp, plugins, config){
 				config.dest.js + 'jquery*.min.js',
 				config.dest.js + 'bootstrap*.min.js',
 				config.dest.js + 'masonry*.min.js',
-				config.dest.js + '*.min.js',
+				config.dest.js + '/*.min.js',
 			];
 		} else {
 			var arSrc = [
-				'!' + config.dest + '**/*.min.*',
 				config.dest.css + '/reset*.css',
 				config.dest.css + '/normalize*.css',
 				config.dest.css + '/bootstrap*.css',
 				config.dest.css + '/*.css',
+				'!' + config.dest.css + '/*.min.css',
 				config.dest.js + 'jquery*.js',
 				config.dest.js + 'bootstrap*.js',
 				config.dest.js + 'masonry*.js',
-				config.dest.js + '*.js',
+				config.dest.js + '/*.js',
+				'!' + config.dest.js + '/*.min.js',
 			];
 		}
 
