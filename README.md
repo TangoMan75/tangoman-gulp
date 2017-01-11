@@ -6,49 +6,6 @@ Set up your front-end Gulp workflow in minutes
 
 
 
-How to use
-==========
-
- - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
- - 2. Then install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) (TLDR: Run following command: `$ npm install --global gulp-cli`)
- - 3. Copy **TangoMan Gulp Boilerplate** into your web directory.
- - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases.
- - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
-
-
-
-Availlable commands
-===================
-
-Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
-Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
-
- - `$ gulp clean`    : Deletes all files that are not minified in the dist folder.
- - `$ gulp concatjs` : Concatenates all .js files.
- - `$ gulp copy`     : Copies all files from your source folder into distribution folder.
- - `$ gulp csscomb`  : Formats CSS.
- - `$ gulp dump`     : Dumps config and plugins variables in console.
- - `$ gulp imagemin` : Optimize PNG, JPEG, GIF and SVG images.
- - `$ gulp inject`   : Injects minified js and css files into html.
- - `$ gulp mincss`   : Minifies CSS.
- - `$ gulp minjs`    : Minifies javascript.
- - `$ gulp prefix`   : Adds vendor prefixes to CSS.
- - `$ gulp sass`     : Compiles SASS and SCSS files, and generates sourcemap.
- - `$ gulp sassdoc`  : Generates SASS documentation.
- - `$ gulp strip`    : Removes console.logs from javascript.
- - `$ gulp uncss`    : Remove unused CSS selectors.
-
-
-
-Sequences
----------
-
- - `$ gulp`       : Starts default sequence. (Compile SASS, concatenates JS)
- - `$ gulp watch` : Starts watcher on CSS, JS, IMG, and HTML files.
- - `$ gulp sync`  : Starts watcher and browser syncronisation.
-
-
-
 Easy gulpfile management
 ========================
 **TangoMan Gulp Boilerplate** makes your gulpfile.js easier to manage. Split your tasks into easy to spot smaller files instead of scrolling into one super long _gulpfile.js_.
@@ -58,12 +15,7 @@ Easy gulpfile management
 It's faster
 ===========
 
-For those who tried the `gulp-require-dir` [https://www.npmjs.com/package/gulp-require-dir](https://www.npmjs.com/package/gulp-require-dir) method, to split your tasks into multiple smaller _task.js_ files.
-You've probably noticed that when your project needs a lot of different Gulp packages (which happens most of the time), your `gulp` command runs really slow.
-Reason for this is that (as far as I've looked into it) `gulp-require-dir` doesn't allow to pass arguments to imported task.js files.
-Thus one is found obligated to copy and paste all of the required gulp module code inside each and every task.js, which are loaded everytime gulp lauches any task.
-
-Fantastic Gulp module `gulp-load-plugins` [https://www.npmjs.com/package/gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins) allows to load each and every gulp plugins in your _package.json_ automatically, and stores everyone of them in the `plugins` object **once and for all**.
+Fantastic Gulp module `gulp-load-plugins` [https://www.npmjs.com/package/gulp-load-plugins](https://www.npmjs.com/package/gulp-load-plugins) allows to load each and every gulp plugins in your _package.json_ automatically, and stores everyone of them in the `plugins` object **once and for all** which is way more efficient than the `gulp-require-dir` [https://www.npmjs.com/package/gulp-require-dir](https://www.npmjs.com/package/gulp-require-dir) method.
 
 
 
@@ -80,8 +32,8 @@ Fantastic plugin `gulp-sequence` [https://www.npmjs.com/package/gulp-sequence](h
 
 
 
-Browser synchronisation
------------------------
+Browser synchronisation with Browser Sync
+-----------------------------------------
 
 Having the ability to refresh automatically your browser while you're developping is a huge time saver.
 Don't bother refreshing your browser or hitting `f5` on your keboard ten million times a day:
@@ -90,13 +42,33 @@ Awesome plugin `Browser Sync` [https://www.npmjs.com/package/browser-sync](https
 
 
 
-Developpement or production settings
-------------------------------------
+Browser synchronisation with Live Reload
+----------------------------------------
 
-**TangoMan Gulp Boilerplate** makes it easy to set up specific tasks for developpement or production.
-For example you don't need minification or prefixing during developping phase, while you may want to clean your _dist_ folder or to avoid making sourcemaps availlable for your final production.
+In some cases, for example if you're developping a **symfony project** [Live Reload](https://www.npmjs.com/package/gulp-livereload) might be a better option.
+In order for it to work, inesrt this code inside your `base.html.twig`.
 
-Just add `--production` argument to your tasks to run Gulp with specific production settings.
+````twig
+// src/Acme/Bundle/FrontendBundle/Resources/views/base.html.twig
+
+{% if app.environment == 'dev' %}
+    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+{% endif %}
+```
+
+
+
+How to use
+==========
+
+Installation
+------------
+
+ - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
+ - 2. Then install Gulp, TLDR: Run following command: `$ npm install --global gulp-cli`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+ - 3. Extract **TangoMan Gulp Boilerplate** content into your projectweb directory.
+ - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases.
+ - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
 
 
 
@@ -113,21 +85,20 @@ Inside your
 ```
 
 You can configure your project name and version:
-
 ```json
 	"project": {
 		"name": "main",
 		"version": "0.1.0"
 	},
 ```
+These values are used by _concat.js_ to generate _main-1.0.0.js_ file name.
 
-This value is used by _inject.js_ to rewrite correct relative pathes in html.
-
+You can configure the name of the project web directory:
 ```json
 	"folderName": "dist",
 ```
+This value is used by _inject.js_ to rewrite correct relative pathes in html.
 
-These values are used by _concat.js_ to generate _name-1.0.0.js_ file name.
 
 And here you can configure your project source and distribution folders:
 
@@ -158,6 +129,48 @@ And here you can configure your project source and distribution folders:
 		"index": "./index.html"
 	},
 ```
+
+
+
+Availlable commands
+-------------------
+
+Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
+Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
+
+ - `$ gulp clean`    : Deletes all files that are not minified in the dist folder.
+ - `$ gulp concatjs` : Concatenates all .js files.
+ - `$ gulp copy`     : Copies all files from your source folder into distribution folder.
+ - `$ gulp csscomb`  : Formats CSS.
+ - `$ gulp dump`     : Dumps config and plugins variables in console.
+ - `$ gulp imagemin` : Optimize PNG, JPEG, GIF and SVG images.
+ - `$ gulp inject`   : Injects minified js and css files into html.
+ - `$ gulp mincss`   : Minifies CSS.
+ - `$ gulp minjs`    : Minifies javascript.
+ - `$ gulp prefix`   : Adds vendor prefixes to CSS.
+ - `$ gulp sass`     : Compiles SASS and SCSS files, and generates sourcemap.
+ - `$ gulp sassdoc`  : Generates SASS documentation.
+ - `$ gulp strip`    : Removes console.logs from javascript.
+ - `$ gulp uncss`    : Remove unused CSS selectors.
+
+
+
+Sequences
+---------
+
+ - `$ gulp`       : Starts default sequence. (Compile SASS, concatenate JS)
+ - `$ gulp watch` : Starts watcher on CSS, JS, IMG, and HTML files.
+ - `$ gulp sync`  : Starts watcher and browser syncronisation.
+
+
+
+Developpement or production settings
+------------------------------------
+
+**TangoMan Gulp Boilerplate** makes it easy to set up specific tasks for developpement or production.
+For example you don't need minification or prefixing during developping phase, while you may want to clean your _dist_ folder or to avoid making sourcemaps availlable for your final production.
+
+Just add `--prod` argument to your tasks to run Gulp with specific production settings.
 
 
 
@@ -213,6 +226,7 @@ Known bugs
 
 It seems like, [Browser Sync](https://www.npmjs.com/package/browser-sync) freezes from time to time for some reason. Restart Gulp for it to work again properly.
 And [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) seems to remove embedded sourcemaps!
+
 
 
 Inspiration

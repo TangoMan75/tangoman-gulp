@@ -15,8 +15,7 @@
   "author": "Matthias Morin <tangoman@free.fr>",
   "license": "MIT",
   "dependencies": {
-    "fs-extra": "^1.0.0",
-    "gulp": "latest"
+    "gulp": "latest",
   },
   "devDependencies": {
     "browser-sync": "latest",
