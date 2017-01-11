@@ -12,7 +12,7 @@ var sassdoc = require('sassdoc');	// A documentation tool for sass
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Creating SASS documentation');
+		console.log('\r\n\r\n----------> Creating SASS documentation');
 
 		/**
 		 * SassDoc Options

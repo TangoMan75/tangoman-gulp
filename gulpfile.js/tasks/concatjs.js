@@ -20,7 +20,7 @@ function handleError(err) {
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Merging Javascript');
+		console.log('\r\n\r\n----------> Merging Javascript');
 
 		/**
 		 * Concat Source Config

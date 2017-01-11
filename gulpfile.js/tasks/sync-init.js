@@ -9,7 +9,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Init Browser Sync server');
+		console.log('\r\n\r\n----------> Init Browser Sync server');
 
 		/**
 		 * Browser Sync config

@@ -9,7 +9,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Combing CSS');
+		console.log('\r\n\r\n----------> Combing CSS');
 
 		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.csscomb())

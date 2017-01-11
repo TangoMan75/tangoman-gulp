@@ -9,7 +9,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Removing console.logs');
+		console.log('\r\n\r\n----------> Removing console.logs');
 
 		gulp.src(config.src.js + '/*.js')
 		.pipe(plugins.stripDebug())

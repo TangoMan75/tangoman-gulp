@@ -22,6 +22,40 @@ var gulp = require('gulp');	// The streaming build system
 // https://www.npmjs.com/package/gulp-load-plugins
 var plugins = require('gulp-load-plugins')();	// Automatically load any gulp plugins in your package.json
 
+
+
+/**************************************************
+ * Loads gulpfile configuration
+ **************************************************/
+
+// fs = require('fs');
+// fsextra = require('fs-extra');
+// 
+// fs.writeFile('message.txt', 'Fils de pute!!!', function (err) {
+//   if (err) throw err;
+//   console.log('It\'s saved!');
+// });
+// 
+// var strConfigFile       = './gulpfile.js/config.json';
+// var strConfigSampleFile = './gulpfile.js/config-sample.json';
+// if (!fs.existsSync(strConfigFile)) {
+// 	if (!fs.existsSync(strConfigSampleFile)) {
+// 		console.log('config-sample.json not found');
+// 		// Fatal error
+// 		process.exit();
+// 	} else {
+// 		console.log('Loading default config')
+//		//fs.createReadStream(strConfigSampleFile).pipe(fs.createWriteStream(strConfigFile));
+// 		fs.copySync(strConfigSampleFile, strConfigFile, function(){
+// 			// Loads gulpfile configuration
+// 			config = require('./config.json');
+// 		});
+// 	}
+// } else {
+// 	// Loads gulpfile configuration
+// 	config = require('./config.json');
+// }
+
 // Loads gulpfile configuration
 config = require('./config.json');
 
@@ -82,7 +116,6 @@ gulp.task('minjs',      getTask('minjs'));
 gulp.task('prefix',     getTask('prefix'));
 gulp.task('sass',       getTask('sass'));
 gulp.task('sassdoc',    getTask('sassdoc'));
-gulp.task('space',      getTask('space'));
 gulp.task('strip',      getTask('strip'));
 gulp.task('sync-init',  getTask('sync-init'));
 gulp.task('uncss',      getTask('uncss'));
@@ -104,13 +137,13 @@ gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('space', 'sass', cb);
+	plugins.sequence('sass', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('space', 'clean', 'sass', 'prefix', 'mincss', cb);
+	plugins.sequence('clean', 'sass', 'prefix', 'mincss', cb);
 };
 
-gulp.task('css', plugins.util.env.production ? cssProd : cssDev);
+gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
 
 
 
@@ -119,13 +152,13 @@ gulp.task('css', plugins.util.env.production ? cssProd : cssDev);
  **************************************************/
 
 var jsDev  = function(cb){
-	plugins.sequence('space', 'concatjs', cb);
+	plugins.sequence('concatjs', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('space', 'clean', 'concatjs', 'minjs', cb);
+	plugins.sequence('clean', 'concatjs', 'minjs', cb);
 };
 
-gulp.task('js', plugins.util.env.production ? jsProd : jsDev);
+gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
 
 
 
@@ -134,10 +167,10 @@ gulp.task('js', plugins.util.env.production ? jsProd : jsDev);
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['space', 'sass', 'concatjs'], cb);
+	plugins.sequence(['sass', 'concatjs'], 'inject', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['space', 'clean', 'sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], cb);
+	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', 'inject', cb);
 };
 
-gulp.task('default', plugins.util.env.production ? defaultProd : defaultDev);
+gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);

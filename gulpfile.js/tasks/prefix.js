@@ -22,7 +22,7 @@ function handleError(err) {
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Prefixing CSS');
+		console.log('\r\n\r\n----------> Prefixing CSS');
 
 		/**
 		 * Autoprefixer Config

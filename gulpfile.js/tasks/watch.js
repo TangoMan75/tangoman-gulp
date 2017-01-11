@@ -9,7 +9,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(){
 
-		console.log('----------> Watching');
+		console.log('\r\n\r\n----------> Watching');
 
 		// Changes in the src directory
 		gulp.watch(config.src.img + '/**/*.{gif,jpeg,jpg,png,svg}', ['imagemin']);

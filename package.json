@@ -14,10 +14,13 @@
   ],
   "author": "Matthias Morin <tangoman@free.fr>",
   "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^1.0.0",
+    "gulp": "latest"
+  },
   "devDependencies": {
     "browser-sync": "latest",
     "del": "latest",
-    "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-beautify": "latest",
     "gulp-changed": "latest",

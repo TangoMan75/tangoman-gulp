@@ -13,10 +13,10 @@ module.exports = function(gulp, plugins, config){
 	 */
 	return function(cb){
 
-		console.log('----------> Config');
+		console.log('\r\n\r\n----------> Config');
 		console.log(config);
 		console.log('\r\n\r\n\r\n');
-		console.log('----------> Plugins');
+		console.log('\r\n\r\n----------> Plugins');
 		console.log(plugins);
 		console.log('\r\n\r\n\r\n');
 		plugins.util.beep();

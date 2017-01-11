@@ -10,7 +10,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Minifying CSS');
+		console.log('\r\n\r\n----------> Minifying CSS');
 
 		/**
 		 * Source Config

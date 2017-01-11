@@ -21,7 +21,7 @@ Availlable commands
 ===================
 
 Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
-Do a `$ gulp --production` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
+Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
 
  - `$ gulp clean`    : Deletes all files that are not minified in the dist folder.
  - `$ gulp concatjs` : Concatenates all .js files.

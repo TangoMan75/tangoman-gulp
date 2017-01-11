@@ -11,7 +11,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Removing unused CSS');
+		console.log('\r\n\r\n----------> Removing unused CSS');
 
 		/**
 		 * uncss Options

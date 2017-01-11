@@ -9,7 +9,7 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Cleaning');
+		console.log('\r\n\r\n----------> Cleaning');
 
 		// Delete files and folders
 		// https://www.npmjs.com/package/del

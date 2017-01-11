@@ -21,7 +21,7 @@ function handleError(err) {
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Minifying Javascript');
+		console.log('\r\n\r\n----------> Minifying Javascript');
 
 		/**
 		 * Source Config

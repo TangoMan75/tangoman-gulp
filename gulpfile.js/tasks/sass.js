@@ -1,7 +1,7 @@
 /**
  * Compiles SASS and SCSS files, and generates sourcemap
  *
- * Use `gulp sass --production` to disable sourcemaps
+ * Use `gulp sass --prod` to disable sourcemaps
  *
  * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
@@ -28,7 +28,7 @@ function handleError(err) {
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Compiling SASS');
+		console.log('\r\n\r\n----------> Compiling SASS');
 
 		/**
 		 * Sass Options
@@ -40,10 +40,10 @@ module.exports = function(gulp, plugins, config){
 		};
 
 		gulp.src(config.src.scss + '/**/*.{sass,scss}')
-		.pipe(!plugins.util.env.production ? plugins.sourcemaps.init('debug') : plugins.util.noop())
+		.pipe(!plugins.util.env.prod ? plugins.sourcemaps.init('debug') : plugins.util.noop())
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.sass(objOptions))
-		.pipe(!plugins.util.env.production ? plugins.sourcemaps.write() : plugins.util.noop())
+		.pipe(!plugins.util.env.prod ? plugins.sourcemaps.write() : plugins.util.noop())
 		.pipe(gulp.dest(config.dest.scss))
 		.on('end', cb);
 	};

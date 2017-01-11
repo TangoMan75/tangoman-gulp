@@ -10,15 +10,18 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('----------> Injecting into html');
+		console.log('\r\n\r\n----------> Injecting into html');
 
 		/**
 		 * Source Config
+		 *
+		 * Injects minified files in --prod
+		 * Injects original otherwise
 		 * 
 		 * Forces specified order for inclusions
 		 * @type {Array}
 		 */
-		if (plugins.util.env.production) {
+		if (plugins.util.env.prod) {
 			var arSrc = [
 				config.dest.css + '/reset*.min.css',
 				config.dest.css + '/normalize*.min.css',
@@ -57,7 +60,7 @@ module.exports = function(gulp, plugins, config){
 
 		gulp.src(config.src.index)
 		.pipe(plugins.inject(sources, objOptions))
-		.pipe(gulp.dest(config.dest))
+		.pipe(gulp.dest(config.dest.dest))
 		.on('end', cb)
 	};
 };
