@@ -1,5 +1,4 @@
 /**
- * Watch-sync Task
  * Watcher with browser-sync auto reload
  * 
  * @version  0.4.0

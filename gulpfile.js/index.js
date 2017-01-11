@@ -5,7 +5,7 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version  1.0.0
+ * @version  1.0.1
  * @licence  MIT
  * @author   Matthias Morin <tangoman@free.fr>
  */
@@ -74,6 +74,7 @@ gulp.task('clean',      getTask('clean'));
 gulp.task('concatjs',   getTask('concatjs'));
 gulp.task('copy',       getTask('copy'));
 gulp.task('csscomb',    getTask('csscomb'));
+gulp.task('dump',       getTask('dump'));
 gulp.task('imagemin',   getTask('imagemin'));
 gulp.task('inject',     getTask('inject'));
 gulp.task('mincss',     getTask('mincss'));
@@ -82,11 +83,11 @@ gulp.task('prefix',     getTask('prefix'));
 gulp.task('sass',       getTask('sass'));
 gulp.task('sassdoc',    getTask('sassdoc'));
 gulp.task('space',      getTask('space'));
+gulp.task('strip',      getTask('strip'));
+gulp.task('sync-init',  getTask('sync-init'));
+gulp.task('uncss',      getTask('uncss'));
 gulp.task('watch',      getTask('watch'));
 gulp.task('watch-sync', getTask('watch-sync'));
-gulp.task('sync-init',  getTask('sync-init'));
-gulp.task('dump',       getTask('dump'));
-gulp.task('uncss',      getTask('uncss'));
 
 
 

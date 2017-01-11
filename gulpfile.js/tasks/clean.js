@@ -1,6 +1,4 @@
 /**
- * Cleaning Task
- *
  * Deletes all files that are not minified in the dist folder
  *
 * @version  1.0.0

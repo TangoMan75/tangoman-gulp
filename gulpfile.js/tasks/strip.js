@@ -1,6 +1,4 @@
 /**
- * Strip-debug Task
- *
  * Removes console.logs from javascript
  * 
  * @version  1.0.0

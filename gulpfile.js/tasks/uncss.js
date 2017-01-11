@@ -1,5 +1,5 @@
 /**
- * uncss Task
+ * Remove unused CSS selectors
  * 
  * This task is probably useless when you work with a twig template
  *

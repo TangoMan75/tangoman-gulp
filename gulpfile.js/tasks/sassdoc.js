@@ -1,6 +1,4 @@
 /**
- * SASS Doc Task
- *
  * Generates SASS documentation
  * 
  * @version  1.0.0

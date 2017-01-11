@@ -1,6 +1,4 @@
 /**
- * Javascript Task
- *
  * Concatenates all .js files
  *
  * @version  1.0.0

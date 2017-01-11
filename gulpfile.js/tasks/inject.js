@@ -1,10 +1,8 @@
 /**
- * HTML Task
- *
- * Injects minified js and css files from dist directory
+ * Injects minified js and css files into html
  * This task is probably useless when you work with a twig template
  * 
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

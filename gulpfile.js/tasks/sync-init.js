@@ -1,6 +1,4 @@
 /**
- * Browser Sync
- *
  * Syncs browsers
  * This task is probably useless when you work with symfony
  * 

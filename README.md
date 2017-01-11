@@ -9,12 +9,11 @@ Set up your front-end Gulp workflow in minutes
 How to use
 ==========
 
-1. You need to download and install [Node.js](https://nodejs.org/en) first.
-2. Then install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-3. Copy **TangoMan Gulp Boilerplate** into your web directory.
-4. Once you've installed project dependencies with `npm install`, you should be ready to go right out the the box in most cases.
-5. Open a command window in your web directory.
-6. Enjoy... (See below for availlable commands)
+ - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
+ - 2. Then install Gulp, have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) (TLDR: Run following command: `$ npm install --global gulp-cli`)
+ - 3. Copy **TangoMan Gulp Boilerplate** into your web directory.
+ - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases.
+ - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
 
 
 
@@ -25,70 +24,27 @@ Enter `gulp watch` to start gulp listening to any change in your source director
 Do a `gulp --production` before you commit to clean the _dist_ directory, and apply specific *production* tasks.
 
 
-```cmd
-$ clean
-```
-
-```cmd
-$ concatjs
-```
-
-```cmd
-$ copy
-```
-
-```cmd
-$ csscomb
-```
-
-```cmd
-$ imagemin
-```
-
-```cmd
-$ inject
-```
-
-```cmd
-$ mincss
-```
-
-```cmd
-$ minjs
-```
-
-```cmd
-$ prefix
-```
-
-```cmd
-$ sass
-```
-
-```cmd
-$ sassdoc
-```
-
-```cmd
-$ dump
-```
-
-```cmd
-$ uncss
-```
-
+`$ clean`    : Deletes all files that are not minified in the dist folder.
+`$ concatjs` : Concatenates all .js files.
+`$ copy`     : Copies all files from your source folder into distribution folder.
+`$ csscomb`  : Formats CSS.
+`$ dump`     : Dumps config and plugins variables in console.
+`$ imagemin` : Optimize PNG, JPEG, GIF and SVG images.
+`$ inject`   : Injects minified js and css files into html.
+`$ mincss`   : Minifies CSS.
+`$ minjs`    : Minifies javascript.
+`$ prefix`   : Adds vendor prefixes to CSS.
+`$ sass`     : Compiles SASS and SCSS files, and generates sourcemap.
+`$ sassdoc`  : Generates SASS documentation.
+`$ strip`    : Removes console.logs from javascript.
+`$ uncss`    : Remove unused CSS selectors.
 
 
 Sequences
 ---------
 
-```cmd
-$ watch
-```
-
-```cmd
-$ sync
-```
+`$ watch` : Starts watcher on CSS, JS, IMG, and HTML files.
+`$ sync`  : Starts watcher and browser syncronisation.
 
 
 

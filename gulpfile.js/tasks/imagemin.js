@@ -1,9 +1,7 @@
 /**
- * Imagemin Task
- *
- * Optimizes images from `.src/assets/img/` folder
+ * Optimize PNG, JPEG, GIF and SVG images
  * 
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

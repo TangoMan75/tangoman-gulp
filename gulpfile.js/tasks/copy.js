@@ -1,10 +1,8 @@
 /**
- * Copy Task
- *
- * Copies all files into dist folder
+ * Copies all files from your source folder into distribution folder
  * This task uses a callback and all tasks will run asynchronously
  * 
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

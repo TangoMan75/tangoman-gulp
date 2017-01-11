@@ -1,11 +1,8 @@
 /**
- * Autoprefixer Task
- *
- * Prefixes every css file in the dist directory
- *
+ * Adds vendor prefixes to CSS
  * 
  * @note     Attention: Autoprefixer removes embedded sourcemaps!
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

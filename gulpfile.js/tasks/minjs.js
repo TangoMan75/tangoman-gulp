@@ -1,7 +1,7 @@
 /**
- * Minify Javascript Task
+ * Minifies javascript
  * 
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

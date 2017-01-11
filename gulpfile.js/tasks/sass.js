@@ -1,11 +1,9 @@
 /**
- * SASS and Sourcemap Task
- *
- * Compiles SASS or SCSS and generates sourcemap
+ * Compiles SASS and SCSS files, and generates sourcemap
  *
  * Use `gulp sass --production` to disable sourcemaps
  *
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

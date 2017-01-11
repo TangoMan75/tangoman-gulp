@@ -1,5 +1,5 @@
 /**
- * Watch Task
+ * Starts watcher on CSS, JS, IMG, and HTML files
  * 
  * @version  1.0.0
  * @author   Matthias Morin <tangoman@free.fr>

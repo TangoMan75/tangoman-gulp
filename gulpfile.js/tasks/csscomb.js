@@ -1,9 +1,7 @@
 /**
- * CSSComb Task
- *
- * Formats CSS from dist folder
+ * Formats CSS
  * 
- * @version  1.0.0
+ * @version  1.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

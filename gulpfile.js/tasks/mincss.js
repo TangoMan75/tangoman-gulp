@@ -1,5 +1,5 @@
 /**
- * Minify CSS Task
+ * Minifies CSS with cssnano
  * 
  * @version  1.0.0
  * @author   Matthias Morin <tangoman@free.fr>
