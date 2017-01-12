@@ -116,9 +116,9 @@ function getTask(task){
  * 'command' -> 'file'
  **************************************************/
 
+gulp.task('assets',     getTask('assets'));
 gulp.task('clean',      getTask('clean'));
 gulp.task('concatjs',   getTask('concatjs'));
-gulp.task('copy',       getTask('copy'));
 gulp.task('csscomb',    getTask('csscomb'));
 gulp.task('dump',       getTask('dump'));
 gulp.task('imagemin',   getTask('imagemin'));
@@ -150,10 +150,10 @@ gulp.task('reload', getTask('watch-reload'));
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('sass', cb);
+	plugins.sequence('sass', 'prefix', 'csscomb', 'inject', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('sass', 'prefix', 'mincss', 'clean', cb);
+	plugins.sequence('sass', 'prefix', 'mincss', 'clean', 'inject', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
@@ -165,10 +165,10 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
  **************************************************/
 
 var jsDev  = function(cb){
-	plugins.sequence('concatjs', cb);
+	plugins.sequence('concatjs', 'inject', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'minjs', 'clean', cb);
+	plugins.sequence('concatjs', 'minjs', 'clean', 'inject', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
@@ -180,7 +180,7 @@ gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['sass', 'concatjs'], 'inject', cb);
+	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], 'inject', cb);
 };
 var defaultProd = function(cb){
 	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', 'inject', cb);

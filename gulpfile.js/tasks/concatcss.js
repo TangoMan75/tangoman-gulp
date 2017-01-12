@@ -1,8 +1,7 @@
 /**
- * Concatenates all `_*.js` files from your source folder to distribution folder
- * Prefix files you want concatenated with "_"
+ * Concatenates all CSS files from your distribution folder
  *
- * @version  2.0.0
+ * @version  1.0.0
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
@@ -21,7 +20,7 @@ function handleError(err) {
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
-		console.log('\r\n\r\n----------> Merging Javascript');
+		console.log('\r\n\r\n----------> Merging CSS');
 
 		/**
 		 * Concat Source Config
@@ -30,13 +29,13 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.src.js + '/**/_*.js'
+			config.dist.css + '/**/*.css'
 		];
 
 		gulp.src(arSrc)
 		.pipe(plugins.plumber({ errorHandler: handleError }))
-		.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.js'))
-		.pipe(gulp.dest(config.dest.js))
+		.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.css'))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb);
 	};
 };

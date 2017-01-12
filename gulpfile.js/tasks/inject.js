@@ -1,8 +1,7 @@
 /**
- * Injects minified js and css files into html
- * This task is probably useless when you work with a twig template
+ * Injects js and css files into html
  * 
- * @version  1.0.1
+ * @version  2.0.0
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

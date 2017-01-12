@@ -1,7 +1,7 @@
 /**
- * Optimize PNG, JPEG, GIF and SVG images
+ * Optimize PNG, JPEG, GIF and SVG images in the dist folder
  * 
- * @version  1.0.1
+ * @version  1.0.2
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

@@ -1,7 +1,7 @@
 /**
- * Deletes all files that are not minified in the dist folder
+ * Deletes all css/js files that are not minified in the dist folder
  *
-* @version  1.0.0
+* @version  1.0.1
 * @author   Matthias Morin <tangoman@free.fr>
 * @note     Will run synchronouly since del is not a gulp plugin
  */

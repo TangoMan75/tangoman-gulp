@@ -1,8 +1,7 @@
 /**
- * Copies all files from your source folder into distribution folder
- * This task uses a callback and all tasks will run asynchronously
+ * Copies all assets/vendor files from your source folder into distribution folder
  * 
- * @version  1.0.1
+ * @version  2.0.0
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
@@ -10,15 +9,13 @@ module.exports = function(gulp){
 	return function(cb){
 
 		arCSS = [
-			config.src.assets + 'css/**/*.*',
-			config.src.vendors + 'css/**/*.*',
-			config.src.css + 'css/**/*.*',
+			config.src.assets + '/css/**/*.*',
+			config.src.vendors + '/css/**/*.*',
 		];
 
 		arJS = [
-			config.src.assets + 'js/**/*.*',
-			config.src.vendors + 'js/**/*.*',
-			config.src.js + 'js/**/*.*',
+			config.src.assets + '/js/**/*.*',
+			config.src.vendors + '/js/**/*.*',
 		];
 
 		console.log('\r\n\r\n----------> Copying CSS');

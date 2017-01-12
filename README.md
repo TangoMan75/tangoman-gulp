@@ -5,6 +5,13 @@ Set up your front-end Gulp workflow in minutes
 ----------------------------------------------
 
 
+Why do I need Gulp?
+===================
+
+Gulp is a javascript task manager that allows to automate repetitive front-end tasks.
+
+There are a ton of [Gulp plugins](http://gulpjs.com/plugins) to help solve almost any problem you can imagine.
+
 
 Easy gulpfile management
 ========================
@@ -50,6 +57,12 @@ In order for it to work, inesrt this code inside your `base.html.twig`.
 ```
 
 
+Generate source maps
+--------------------
+
+[gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) will automatically generate source maps for your sass / scss files, except in production mode.
+
+
 
 How to use
 ==========
@@ -58,8 +71,8 @@ Installation
 ------------
 
  - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
- - 2. Then install Gulp, TLDR: Run following command: `$ npm install --global gulp-cli`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
- - 3. Extract **TangoMan Gulp Boilerplate** content into your projectweb directory.
+ - 2. Then install Gulp, **TLDR: Run following command:** `$ npm install --global gulp-cli`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+ - 3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
  - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases.
  - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
 
@@ -130,29 +143,33 @@ Availlable commands
 Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
 Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
 
- - `$ gulp clean`    : Deletes all files that are not minified in the dist folder.
- - `$ gulp concatjs` : Concatenates all .js files.
- - `$ gulp copy`     : Copies all files from your source folder into distribution folder.
- - `$ gulp csscomb`  : Formats CSS.
- - `$ gulp dump`     : Dumps config and plugins variables in console.
- - `$ gulp imagemin` : Optimize PNG, JPEG, GIF and SVG images.
- - `$ gulp inject`   : Injects minified js and css files into html.
- - `$ gulp mincss`   : Minifies CSS.
- - `$ gulp minjs`    : Minifies javascript.
- - `$ gulp prefix`   : Adds vendor prefixes to CSS.
- - `$ gulp sass`     : Compiles SASS and SCSS files, and generates sourcemap.
- - `$ gulp sassdoc`  : Generates SASS documentation.
- - `$ gulp strip`    : Removes console.logs from javascript.
- - `$ gulp uncss`    : Remove unused CSS selectors.
+ - `$ gulp assets`    : Copies all assets/vendor from your source folder into distribution folder.
+ - `$ gulp clean`     : Deletes all files that are not minified in the dist folder.
+ - `$ gulp concatcss` : Concatenates all .css files.
+ - `$ gulp concatjs`  : Concatenates all .js files.
+ - `$ gulp csscomb`   : Formats CSS.
+ - `$ gulp dump`      : Dumps config and plugins variables in console.
+ - `$ gulp imagemin`  : Optimize PNG, JPEG, GIF and SVG images.
+ - `$ gulp inject`    : Injects minified js and css files into html.
+ - `$ gulp mincss`    : Minifies CSS.
+ - `$ gulp minjs`     : Minifies javascript.
+ - `$ gulp prefix`    : Adds vendor prefixes to CSS.
+ - `$ gulp sass`      : Compiles SASS and SCSS files, and generates sourcemap.
+ - `$ gulp sassdoc`   : Generates SASS documentation.
+ - `$ gulp strip`     : Removes console.logs from javascript.
+ - `$ gulp uncss`     : Remove unused CSS selectors.
 
 
 
 Sequences
 ---------
 
- - `$ gulp`       : Starts default sequence. (Compile SASS, concatenate JS)
- - `$ gulp watch` : Starts watcher on CSS, JS, IMG, and HTML files.
- - `$ gulp sync`  : Starts watcher and browser syncronisation.
+ - `$ gulp`        : Starts default sequence. Compiles sass, appends vendor prefixes, combs css, minifies css, injects css and js, and cleans dist directory.
+ - `$ gulp watch`  : Starts watcher on CSS, JS, IMG, and HTML files.
+ - `$ gulp sync`   : Starts watcher and browser syncronisation with BrowserSync plugin.
+ - `$ gulp reload` : Starts watcher and browser syncronisation with LiveReload plugin.
+ - `$ gulp css`    : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
+ - `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
 
 
 

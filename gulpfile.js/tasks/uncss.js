@@ -3,7 +3,7 @@
  * 
  * This task is probably useless when you work with a twig template
  *
- * @version  1.0.0
+ * @version  1.0.0 beta
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
