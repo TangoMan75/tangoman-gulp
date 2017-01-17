@@ -33,7 +33,7 @@ var plugins = require('gulp-load-plugins')();
 // fs = require('fs');
 // fsextra = require('fs-extra');
 // 
-// fs.writeFile('message.txt', 'Fils de pute!!!', function (err) {
+// fs.writeFile('message.txt', 'Hello world!', function (err) {
 //   if (err) throw err;
 //   console.log('It\'s saved!');
 // });
