@@ -4,6 +4,7 @@
 		"version": "0.1.0"
 	},
 	"folderName": "dist",
+	"inject": true,
 	"src": {
 		"src": "./src",
 		"css": "./src/css",

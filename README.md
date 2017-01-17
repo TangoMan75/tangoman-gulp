@@ -90,6 +90,7 @@ Inside your
 ./gulpfile.js/config.json
 ```
 
+
 You can configure your project name and version:
 ```json
 	"project": {
@@ -99,14 +100,22 @@ You can configure your project name and version:
 ```
 These values are used by _concat.js_ to generate _main-1.0.0.js_ file name.
 
+
 You can configure the name of the project web directory:
 ```json
 	"folderName": "dist",
 ```
 This value is used by _inject.js_ to rewrite correct relative pathes in html.
 
-And here you can configure your project source and distribution folders:
 
+You can configure if you want to inject generated file inside your html with :
+```json
+	"inject": false,
+```
+This value is used by task sequences inside _index.js_.
+
+
+And here you can configure your project source and distribution folders:
 ```json
 	"src": {
 		"src": "./src",
@@ -154,7 +163,7 @@ Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply 
  - `$ gulp mincss`    : Minifies CSS.
  - `$ gulp minjs`     : Minifies javascript.
  - `$ gulp prefix`    : Adds vendor prefixes to CSS.
- - `$ gulp sass`      : Compiles SASS and SCSS files, and generates sourcemap.
+ - `$ gulp sasscomp`  : Compiles SASS and SCSS files, and generates sourcemap.
  - `$ gulp sassdoc`   : Generates SASS documentation.
  - `$ gulp strip`     : Removes console.logs from javascript.
  - `$ gulp uncss`     : Remove unused CSS selectors.
@@ -168,7 +177,8 @@ Sequences
  - `$ gulp watch`  : Starts watcher on CSS, JS, IMG, and HTML files.
  - `$ gulp sync`   : Starts watcher and browser syncronisation with BrowserSync plugin.
  - `$ gulp reload` : Starts watcher and browser syncronisation with LiveReload plugin.
- - `$ gulp css`    : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
+ - `$ gulp sass`   : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
+ - `$ gulp css`    : Appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
  - `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
 
 
@@ -265,7 +275,7 @@ If you find any bug please report here : [Issues](https://github.com/TangoMan75/
 License
 =======
 
-Copyrights (c) 2016 Matthias Morin
+Copyrights (c) 2017 Matthias Morin
 
 [![License][license-MIT]][license-url]
 Distributed under the MIT license.

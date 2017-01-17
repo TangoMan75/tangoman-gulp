@@ -3,7 +3,7 @@
  *
  * Use `gulp sass --prod` to disable sourcemaps
  *
- * @version  1.0.1
+ * @version  2.0.0
  * @author   Matthias Morin <tangoman@free.fr>
  */
 

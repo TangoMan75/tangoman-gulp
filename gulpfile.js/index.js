@@ -5,7 +5,7 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version  1.0.1
+ * @version  1.1.0
  * @licence  MIT
  * @author   Matthias Morin <tangoman@free.fr>
  */
@@ -126,7 +126,7 @@ gulp.task('inject',     getTask('inject'));
 gulp.task('mincss',     getTask('mincss'));
 gulp.task('minjs',      getTask('minjs'));
 gulp.task('prefix',     getTask('prefix'));
-gulp.task('sass',       getTask('sass'));
+gulp.task('sasscomp',   getTask('sasscomp'));
 gulp.task('sassdoc',    getTask('sassdoc'));
 gulp.task('strip',      getTask('strip'));
 gulp.task('sync-init',  getTask('sync-init'));
@@ -146,14 +146,29 @@ gulp.task('reload', getTask('watch-reload'));
 
 
 /**************************************************
+ * SASS sequences
+ **************************************************/
+
+var sassDev  = function(cb){
+	plugins.sequence('sasscomp', 'prefix', 'csscomb', config.inject?'inject':'', cb);
+};
+var sassProd = function(cb){
+	plugins.sequence('sasscomp', 'prefix', 'mincss', 'clean', config.inject?'inject':'', cb);
+};
+
+gulp.task('sass', plugins.util.env.prod ? cssProd : cssDev);
+
+
+
+/**************************************************
  * CSS sequences
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('sass', 'prefix', 'csscomb', 'inject', cb);
+	plugins.sequence('prefix', 'csscomb', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('sass', 'prefix', 'mincss', 'clean', 'inject', cb);
+	plugins.sequence('prefix', 'mincss', 'clean', config.inject?'inject':'', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
@@ -165,10 +180,10 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
  **************************************************/
 
 var jsDev  = function(cb){
-	plugins.sequence('concatjs', 'inject', cb);
+	plugins.sequence('concatjs', config.inject?'inject':'', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'minjs', 'clean', 'inject', cb);
+	plugins.sequence('concatjs', 'minjs', 'clean', config.inject?'inject':'', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
@@ -180,10 +195,10 @@ gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], 'inject', cb);
+	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', 'inject', cb);
+	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', config.inject?'inject':'', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);
