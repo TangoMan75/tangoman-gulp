@@ -84,12 +84,9 @@ Configuration
 **TangoMan Gulp Boilerplate** allows for easy gulp configuration.
 If you need to work with a different directory structure, you can easily personalize settings in the _config.json_ file at the root of _gulpfile.js_ folder.
 
-Inside your
+Inside your `./gulpfile.js/config.json`
 
-```
-./gulpfile.js/config.json
-```
-
+####Concatenation:
 
 You can configure your project name and version:
 ```json
@@ -98,8 +95,11 @@ You can configure your project name and version:
 		"version": "0.1.0"
 	},
 ```
-These values are used by _concat.js_ to generate _main-1.0.0.js_ file name.
+These values are used by _concat.js_ to generate concatenated file name (eg: _main-1.0.0.js_).
 
+--------------------------------------------------
+
+####Inject
 
 You can configure the name of the project web directory:
 ```json
@@ -107,15 +107,16 @@ You can configure the name of the project web directory:
 ```
 This value is used by _inject.js_ to rewrite correct relative pathes in html.
 
-
-You can configure if you want to inject generated file inside your html with :
+If you don't want to inject generated files inside your html, disable with :
 ```json
 	"inject": false,
 ```
 This value is used by task sequences inside _index.js_.
 
+--------------------------------------------------
 
-And here you can configure your project source and distribution folders:
+####Source and destination folders
+
 ```json
 	"src": {
 		"src": "./src",
