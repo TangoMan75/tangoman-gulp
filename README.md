@@ -151,7 +151,7 @@ Availlable commands
 -------------------
 
 Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
-Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks.
+Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks. (Notice double dash.)
 
  - `$ gulp assets`    : Copies all assets/vendor from your source folder into distribution folder.
  - `$ gulp clean`     : Deletes all files that are not minified in the dist folder.
@@ -190,7 +190,7 @@ Developpement or production settings
 **TangoMan Gulp Boilerplate** makes it easy to set up specific tasks for developpement or production.
 For example you don't need minification or prefixing during developping phase, while you may want to clean your _dist_ folder or to avoid making sourcemaps availlable for your final production.
 
-Just add `--prod` argument to your tasks to run Gulp with specific production settings.
+Use `--prod` argument to your tasks to run Gulp with specific production settings. (Notice double dash.)
 
 
 
