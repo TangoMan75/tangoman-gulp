@@ -88,6 +88,8 @@ Inside your `./gulpfile.js/config.json`
 
 ####Concatenation:
 
+**Prepend all js files you want concatenated with underscore** (e.g: _concatenateme.js)
+
 You can configure your project name and version:
 ```json
 	"project": {
