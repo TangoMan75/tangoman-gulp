@@ -1,6 +1,7 @@
 # exclude everything except !
 /*
 gulpfile.js/config.json
+!.csscomb.json
 !.gitattributes
 !.gitignore
 !GULP_PLUGINS.md
