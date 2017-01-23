@@ -3,7 +3,7 @@
  *
  * Use `gulp sass --prod` to disable sourcemaps
  *
- * @version  2.0.0
+ * @version  2.0.1
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
@@ -40,10 +40,10 @@ module.exports = function(gulp, plugins, config){
 		};
 
 		gulp.src(config.src.scss + '/**/*.{sass,scss}')
-		.pipe(!plugins.util.env.prod ? plugins.sourcemaps.init('debug') : plugins.util.noop())
+		.pipe(plugins.util.env.prod ? plugins.util.noop() : plugins.sourcemaps.init('debug'))
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.sass(objOptions))
-		.pipe(!plugins.util.env.prod ? plugins.sourcemaps.write() : plugins.util.noop())
+		.pipe(plugins.util.env.prod ? plugins.util.noop() : plugins.sourcemaps.write())
 		.pipe(gulp.dest(config.dest.scss))
 		.on('end', cb);
 	};

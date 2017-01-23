@@ -1,7 +1,7 @@
 /**
  * Formats all CSS in the distribution folder
  * 
- * @version  1.0.1
+ * @version  1.0.2
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
@@ -10,6 +10,8 @@
 module.exports = function(gulp, plugins, config){
 	return function(cb){
 
+		// gulp-csscomb is so bad! You need to have this json inside a .csscomb.json file present in the same folder as the source file(s), or in the project root folder.
+		// Passing arguments directly as a parameter is NOT POSSIBLE!!!
 		ojbSetting = {
 			"remove-empty-rulesets": true,
 			"always-semicolon": true,
