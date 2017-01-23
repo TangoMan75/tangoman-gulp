@@ -1,7 +1,7 @@
 /**
  * Formats all CSS in the distribution folder
  * 
- * @version  1.0.2
+ * @version  1.0.3
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
