@@ -5,7 +5,7 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version  1.1.0
+ * @version  2.0.0
  * @licence  MIT
  * @author   Matthias Morin <tangoman@free.fr>
  */
@@ -23,40 +23,6 @@ var gulp = require('gulp');	// The streaming build system
 // https://www.npmjs.com/package/gulp-load-plugins
 // Which is way more efficient than https://www.npmjs.com/package/gulp-require-dir method
 var plugins = require('gulp-load-plugins')();	
-
-
-
-/**************************************************
- * Loads gulpfile configuration
- **************************************************/
-
-// fs = require('fs');
-// fsextra = require('fs-extra');
-// 
-// fs.writeFile('message.txt', 'Hello world!', function (err) {
-//   if (err) throw err;
-//   console.log('It\'s saved!');
-// });
-// 
-// var strConfigFile       = './gulpfile.js/config.json';
-// var strConfigSampleFile = './gulpfile.js/config-sample.json';
-// if (!fs.existsSync(strConfigFile)) {
-// 	if (!fs.existsSync(strConfigSampleFile)) {
-// 		console.log('config-sample.json not found');
-// 		// Fatal error
-// 		process.exit();
-// 	} else {
-// 		console.log('Loading default config')
-//		//fs.createReadStream(strConfigSampleFile).pipe(fs.createWriteStream(strConfigFile));
-// 		fs.copySync(strConfigSampleFile, strConfigFile, function(){
-// 			// Loads gulpfile configuration
-// 			config = require('./config.json');
-// 		});
-// 	}
-// } else {
-// 	// Loads gulpfile configuration
-// 	config = require('./config.json');
-// }
 
 // Loads gulpfile configuration
 config = require('./config.json');
@@ -146,32 +112,32 @@ gulp.task('reload', getTask('watch-reload'));
 
 
 /**************************************************
- * SASS sequences
- **************************************************/
-
-var sassDev  = function(cb){
-	plugins.sequence('sasscomp', 'prefix', 'csscomb', config.inject?'inject':'', cb);
-};
-var sassProd = function(cb){
-	plugins.sequence('sasscomp', 'prefix', 'mincss', 'clean', config.inject?'inject':'', cb);
-};
-
-gulp.task('sass', plugins.util.env.prod ? cssProd : cssDev);
-
-
-
-/**************************************************
  * CSS sequences
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('prefix', 'csscomb', config.inject?'inject':'', cb);
+	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('prefix', 'mincss', 'clean', config.inject?'inject':'', cb);
+	plugins.sequence('prefix', 'csscomb', 'mincss', 'clean', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
+
+
+
+/**************************************************
+ * SASS sequences
+ **************************************************/
+
+var sassDev  = function(cb){
+	plugins.sequence('sasscomp', cssDev);
+};
+var sassProd = function(cb){
+	plugins.sequence('sasscomp', cssProd);
+};
+
+gulp.task('sass', plugins.util.env.prod ? sassProd : sassDev);
 
 
 
@@ -183,7 +149,7 @@ var jsDev  = function(cb){
 	plugins.sequence('concatjs', config.inject?'inject':'', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'minjs', 'clean', config.inject?'inject':'', cb);
+	plugins.sequence('concatjs', 'minjs', 'clean', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
@@ -198,7 +164,7 @@ var defaultDev  = function(cb){
 	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', config.inject?'inject':'', cb);
+	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);

@@ -1,6 +1,6 @@
 {
 	"project": {
-		"name": "main",
+		"name": "gobetween",
 		"version": "0.1.0"
 	},
 	"folderName": "",
@@ -19,7 +19,7 @@
 	"dest": {
 		"dest": "./",
 		"css": "./css",
-		"scss": "./css",
+		"scss": "./src/css",
 		"js": "./js",
 		"img": "./img",
 		"fonts": "./fonts",
