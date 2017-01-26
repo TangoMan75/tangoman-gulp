@@ -131,10 +131,10 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
  **************************************************/
 
 var sassDev  = function(cb){
-	plugins.sequence('sasscomp', cssDev);
+	plugins.sequence('sasscomp', 'prefix', 'csscomb', 'mincss', config.inject?'inject':'', cb);
 };
 var sassProd = function(cb){
-	plugins.sequence('sasscomp', cssProd);
+	plugins.sequence('sasscomp', 'prefix', 'csscomb', 'mincss', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('sass', plugins.util.env.prod ? sassProd : sassDev);
