@@ -54,7 +54,7 @@ module.exports = function(gulp, plugins, config){
 		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.autoprefixer(objOptions))
-		.pipe(gulp.dest(config.dest.css))
+		.pipe(gulp.dest(config.src.css))
 		.on('end', cb);
 	};
 };

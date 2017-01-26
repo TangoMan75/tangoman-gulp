@@ -14,7 +14,7 @@ module.exports = function(gulp, plugins, config){
 		// Changes in the src directory
 		gulp.watch(config.src.img + '/**/*.{gif,jpeg,jpg,png,svg}', ['imagemin']);
 		gulp.watch(config.src.js + '/**/*.js', ['js']);
-		gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['css']);
-		gulp.watch(config.src + '*.{htm,html}', ['html']);
+		gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['sass']);
+		gulp.watch(config.src + '*.{htm,html}', ['inject']);
 	};
 };

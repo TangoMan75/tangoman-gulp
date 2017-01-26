@@ -39,9 +39,9 @@ module.exports = function(gulp, plugins, config){
 
 		console.log('\r\n\r\n----------> Combing CSS');
 
-		gulp.src(config.dest.css + '/*.css')
+		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.csscomb(ojbSetting))
-		.pipe(gulp.dest(config.dest.css))
+		.pipe(gulp.dest(config.src.css))
 		.on('end', cb)
 	};
 };

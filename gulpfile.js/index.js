@@ -92,6 +92,7 @@ gulp.task('inject',     getTask('inject'));
 gulp.task('mincss',     getTask('mincss'));
 gulp.task('minjs',      getTask('minjs'));
 gulp.task('prefix',     getTask('prefix'));
+gulp.task('renamecss',  getTask('renamecss'));
 gulp.task('sasscomp',   getTask('sasscomp'));
 gulp.task('sassdoc',    getTask('sassdoc'));
 gulp.task('strip',      getTask('strip'));
@@ -116,10 +117,10 @@ gulp.task('reload', getTask('watch-reload'));
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', cb);
+	plugins.sequence('renamecss', 'csscomb', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('prefix', 'csscomb', 'mincss', 'clean', config.inject?'inject':'', 'clean', cb);
+	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
@@ -131,7 +132,7 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
  **************************************************/
 
 var sassDev  = function(cb){
-	plugins.sequence('sasscomp', 'prefix', 'csscomb', 'mincss', config.inject?'inject':'', cb);
+	plugins.sequence('sasscomp', 'csscomb', 'renamecss', config.inject?'inject':'', cb);
 };
 var sassProd = function(cb){
 	plugins.sequence('sasscomp', 'prefix', 'csscomb', 'mincss', config.inject?'inject':'', 'clean', cb);
@@ -149,7 +150,7 @@ var jsDev  = function(cb){
 	plugins.sequence('concatjs', config.inject?'inject':'', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'minjs', 'clean', config.inject?'inject':'', 'clean', cb);
+	plugins.sequence('concatjs', 'minjs', config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
@@ -164,7 +165,7 @@ var defaultDev  = function(cb){
 	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], 'clean', config.inject?'inject':'', 'clean', cb);
+	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], config.inject?'inject':'', 'clean', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);
