@@ -73,7 +73,7 @@ Installation
  - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
  - 2. Then install Gulp, **TLDR: Run following command:** `$ npm install --global gulp-cli`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
  - 3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
- - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases.
+ - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
  - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
 
 
