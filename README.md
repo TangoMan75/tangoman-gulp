@@ -86,7 +86,9 @@ If you need to work with a different directory structure, you can easily persona
 
 Inside your `./gulpfile.js/config.json`
 
-####Concatenation:
+--------------------------------------------------
+
+#### Concatenation:
 
 **Prepend all js files you want concatenated with underscore** (e.g: _concatenateme.js)
 
@@ -99,9 +101,9 @@ You can configure your project name and version:
 ```
 These values are used by _concat.js_ to generate concatenated file name (eg: _main-1.0.0.js_).
 
+--------------------------------------------------
 
-
-####Inject
+#### Inject
 
 You can configure the name of the project web directory:
 ```json
@@ -115,9 +117,9 @@ If you don't want to inject generated files inside your html, disable with :
 ```
 This value is used by task sequences inside _index.js_.
 
+--------------------------------------------------
 
-
-####Source and destination folders
+#### Source and destination folders
 
 ```json
 	"src": {
