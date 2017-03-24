@@ -99,7 +99,7 @@ You can configure your project name and version:
 ```
 These values are used by _concat.js_ to generate concatenated file name (eg: _main-1.0.0.js_).
 
---------------------------------------------------
+
 
 ####Inject
 
@@ -115,7 +115,7 @@ If you don't want to inject generated files inside your html, disable with :
 ```
 This value is used by task sequences inside _index.js_.
 
---------------------------------------------------
+
 
 ####Source and destination folders
 
