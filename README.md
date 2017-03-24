@@ -48,7 +48,7 @@ Browser synchronisation with Live Reload
 In some cases, for example if you're developping a **symfony project** [Live Reload](https://www.npmjs.com/package/gulp-livereload) might be a better option.
 In order for it to work, inesrt this code inside your `base.html.twig`.
 
-````twig
+```twig
 // src/Acme/Bundle/FrontendBundle/Resources/views/base.html.twig
 
 {% if app.environment == 'dev' %}
