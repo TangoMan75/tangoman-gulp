@@ -120,7 +120,7 @@ var cssDev  = function(cb){
 	plugins.sequence('renamecss', 'csscomb', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', 'clean', cb);
+	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
