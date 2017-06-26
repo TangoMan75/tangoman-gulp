@@ -5,6 +5,7 @@
 	},
 	"folderName": "",
 	"inject": false,
+	"clean": false,
 	"src": {
 		"src": "./src",
 		"css": "./src/css",
