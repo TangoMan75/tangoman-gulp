@@ -29,6 +29,7 @@ module.exports = function(gulp, plugins, config){
 		 */
 		var arSrc = [
 			config.src.js + '/*.js',
+			'!' + config.src.js + '/_*.js',
 			'!' + config.src.js + '/*.min.js',
 		];
 

@@ -12,9 +12,9 @@ module.exports = function(gulp, plugins, config){
 		console.log('\r\n\r\n----------> Watching');
 
 		// Changes in the src directory
-		gulp.watch(config.src.img + '/**/*.{gif,jpeg,jpg,png,svg}', ['imagemin']);
+		// gulp.watch(config.src.img + '/**/*.{gif,jpeg,jpg,png,svg}', ['imagemin']);
 		gulp.watch(config.src.js + '/**/*.js', ['js']);
 		gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['sass']);
-		gulp.watch(config.src + '*.{htm,html}', ['inject']);
+		gulp.watch(config.src.index, ['inject']);
 	};
 };

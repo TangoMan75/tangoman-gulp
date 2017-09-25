@@ -1,6 +1,5 @@
 # exclude everything except !
 /*
-gulpfile.js/config.json
 !.csscomb.json
 !.gitattributes
 !.gitignore
@@ -8,4 +7,5 @@ gulpfile.js/config.json
 !gulpfile.js
 !LICENSE
 !package.json
+!project_instal_latest_gulp_plugins.cmd
 !README.md

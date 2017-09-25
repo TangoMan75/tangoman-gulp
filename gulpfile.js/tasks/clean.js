@@ -29,7 +29,12 @@ module.exports = function(gulp, plugins, config){
 			'!' + config.dest.js + '/*.min.js',
 		];
 
-		del(arTarget);
+		if (config.clean) {
+			console.log('----------> Removing all non-minified ".css" & ".js" files in "dest" folder');
+			del(arTarget);
+		} else {
+			console.log('----------> Config setting defined on "false"');
+		}
 		cb();
 	};
 };

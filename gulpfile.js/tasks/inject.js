@@ -52,7 +52,7 @@ module.exports = function(gulp, plugins, config){
 		 */
 		var objOptions = {
 			addRootSlash: false,
-			relative: false,
+			relative: config.relative,
 			ignorePath: config.folderName,
 		};
 

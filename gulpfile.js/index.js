@@ -5,7 +5,7 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version  2.0.0
+ * @version  3.0.0
  * @licence  MIT
  * @author   Matthias Morin <tangoman@free.fr>
  */
@@ -35,8 +35,8 @@ config = require('./config.json');
 
 // Browser Syncing
 // https://www.npmjs.com/package/browser-sync
-plugins.browserSync = require('browser-sync').create();
-plugins.reload      = plugins.browserSync.reload;
+// plugins.browserSync = require('browser-sync').create();
+// plugins.reload      = plugins.browserSync.reload;
 
 
 
@@ -46,7 +46,7 @@ plugins.reload      = plugins.browserSync.reload;
 
 // Live Reload
 // https://www.npmjs.com/package/gulp-livereload
-plugins.livereload = require('gulp-livereload');
+// plugins.livereload = require('gulp-livereload');
 
 
 
@@ -82,24 +82,30 @@ function getTask(task){
  * 'command' -> 'file'
  **************************************************/
 
-gulp.task('assets',     getTask('assets'));
 gulp.task('clean',      getTask('clean'));
 gulp.task('concatjs',   getTask('concatjs'));
 gulp.task('csscomb',    getTask('csscomb'));
 gulp.task('dump',       getTask('dump'));
-gulp.task('imagemin',   getTask('imagemin'));
 gulp.task('inject',     getTask('inject'));
 gulp.task('mincss',     getTask('mincss'));
 gulp.task('minjs',      getTask('minjs'));
 gulp.task('prefix',     getTask('prefix'));
 gulp.task('renamecss',  getTask('renamecss'));
 gulp.task('sasscomp',   getTask('sasscomp'));
-gulp.task('sassdoc',    getTask('sassdoc'));
 gulp.task('strip',      getTask('strip'));
-gulp.task('sync-init',  getTask('sync-init'));
 gulp.task('uncss',      getTask('uncss'));
 gulp.task('watch',      getTask('watch'));
-gulp.task('watch-sync', getTask('watch-sync'));
+
+
+
+/**************************************************
+ * Deprecated
+ **************************************************/
+
+// gulp.task('sassdoc',      getTask('sassdoc'));
+// gulp.task('sync-init',    getTask('sync-init'));
+// gulp.task('watch-sync',   getTask('watch-sync'));
+// gulp.task('watch-reload', getTask('watch-reload'));
 
 
 
@@ -107,8 +113,8 @@ gulp.task('watch-sync', getTask('watch-sync'));
  * Watch Reload and Browser-Sync
  **************************************************/
 
-gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
-gulp.task('reload', getTask('watch-reload'));
+// gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
+// gulp.task('reload', getTask('watch-reload'));
 
 
 
@@ -165,7 +171,7 @@ var defaultDev  = function(cb){
 	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sass', 'concatjs'], 'prefix', ['minjs', 'mincss'], config.inject?'inject':'', config.clean?'clean':'', cb);
+	plugins.sequence(['sass', 'concatjs'], ['prefix', 'strip'], ['minjs', 'mincss'], config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);

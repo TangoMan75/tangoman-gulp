@@ -3,7 +3,7 @@
  * Prefix files you want concatenated with "_"
  *
  * @version  2.0.0
- * @author   Matthias Morin <tangoman@free.fr>
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 /**
@@ -22,6 +22,7 @@ module.exports = function(gulp, plugins, config){
 	return function(cb){
 
 		console.log('\r\n\r\n----------> Merging Javascript');
+		console.log('----------> Note: Prefix your javascript files with "_" to concatenate');
 
 		/**
 		 * Concat Source Config
@@ -33,10 +34,21 @@ module.exports = function(gulp, plugins, config){
 			config.src.js + '/**/_*.js'
 		];
 
-		gulp.src(arSrc)
-		.pipe(plugins.plumber({ errorHandler: handleError }))
-		.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.js'))
-		.pipe(gulp.dest(config.dest.js))
-		.on('end', cb);
+		if (plugins.util.env.prod) {
+			console.log('----------> Production Mode');
+			gulp.src(arSrc)
+			.pipe(plugins.plumber({ errorHandler: handleError }))
+			.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.js'))
+			.pipe(gulp.dest(config.dest.js))
+			.on('end', cb);
+		} else {
+			console.log('----------> Dev Mode');
+			gulp.src(arSrc)
+			.pipe(plugins.plumber({ errorHandler: handleError }))
+			.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.js'))
+			.pipe(gulp.dest(config.src.js))
+			.pipe(gulp.dest(config.dest.js))
+			.on('end', cb);
+		}
 	};
 };
