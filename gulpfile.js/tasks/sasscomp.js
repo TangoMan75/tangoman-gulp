@@ -42,18 +42,18 @@ module.exports = function(gulp, plugins, config){
 		if (plugins.util.env.prod) {
 			console.log('----------> Production Mode');
 			gulp.src(config.src.scss + '/**/*.{sass,scss}')
-			.pipe(plugins.sourcemaps.init('debug'))
 			.pipe(plugins.plumber({ errorHandler: handleError }))
 			.pipe(plugins.sass(objOptions))
-			.pipe(plugins.sourcemaps.write())
 			.pipe(gulp.dest(config.dest.css))
 			.on('end', cb);
 		} else {
 			console.log('----------> Dev Mode');
 			gulp.src(config.src.scss + '/**/*.{sass,scss}')
+			.pipe(plugins.sourcemaps.init('debug'))
 			.pipe(plugins.plumber({ errorHandler: handleError }))
 			.pipe(plugins.sass(objOptions))
 			.pipe(gulp.dest(config.src.css))
+			.pipe(plugins.sourcemaps.write())
 			.pipe(gulp.dest(config.dest.css))
 			.on('end', cb);
 		}
