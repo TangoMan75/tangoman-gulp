@@ -1,7 +1,7 @@
 /**
  * Concatenates all CSS files from your distribution folder
  *
- * @version  1.0.0
+ * @version  1.1.0
  * @author   Matthias Morin <tangoman@free.fr>
  */
 
@@ -29,13 +29,24 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.dist.css + '/**/*.css'
+			config.src.css + '/**/*.css'
 		];
 
-		gulp.src(arSrc)
-		.pipe(plugins.plumber({ errorHandler: handleError }))
-		.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.css'))
-		.pipe(gulp.dest(config.dest.css))
-		.on('end', cb);
+		if (plugins.util.env.prod) {
+			console.log('----------> Production Mode');
+			gulp.src(arSrc)
+			.pipe(plugins.plumber({ errorHandler: handleError }))
+			.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.css'))
+			.pipe(gulp.dest(config.dest.css))
+			.on('end', cb);
+		} else {
+			console.log('----------> Dev Mode');
+			gulp.src(arSrc)
+			.pipe(plugins.plumber({ errorHandler: handleError }))
+			.pipe(plugins.concat(config.project.name + '-' + config.project.version + '.css'))
+			.pipe(gulp.dest(config.src.css))
+			.pipe(gulp.dest(config.dest.css))
+			.on('end', cb);
+		}
 	};
 };

@@ -5,7 +5,7 @@
  * Set up your front-end Gulp workflow in minutes
  * ----------------------------------------------
  *
- * @version  3.0.0
+ * @version  1.0.0
  * @licence  MIT
  * @author   Matthias Morin <tangoman@free.fr>
  */
@@ -26,27 +26,6 @@ var plugins = require('gulp-load-plugins')();
 
 // Loads gulpfile configuration
 config = require('./config.json');
-
-
-
-/**************************************************
- * Browser Sync
- **************************************************/
-
-// Browser Syncing
-// https://www.npmjs.com/package/browser-sync
-// plugins.browserSync = require('browser-sync').create();
-// plugins.reload      = plugins.browserSync.reload;
-
-
-
-/**************************************************
- * Live Reload
- **************************************************/
-
-// Live Reload
-// https://www.npmjs.com/package/gulp-livereload
-// plugins.livereload = require('gulp-livereload');
 
 
 
@@ -99,27 +78,7 @@ gulp.task('watch',      getTask('watch'));
 
 
 /**************************************************
- * Deprecated
- **************************************************/
-
-// gulp.task('sassdoc',      getTask('sassdoc'));
-// gulp.task('sync-init',    getTask('sync-init'));
-// gulp.task('watch-sync',   getTask('watch-sync'));
-// gulp.task('watch-reload', getTask('watch-reload'));
-
-
-
-/**************************************************
- * Watch Reload and Browser-Sync
- **************************************************/
-
-// gulp.task('sync', plugins.sequence('sync-init', 'watch-sync'));
-// gulp.task('reload', getTask('watch-reload'));
-
-
-
-/**************************************************
- * CSS sequences
+ * CSS task sequences
  **************************************************/
 
 var cssDev  = function(cb){
@@ -134,7 +93,7 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
 
 
 /**************************************************
- * SASS sequences
+ * SASS task sequences
  **************************************************/
 
 var sassDev  = function(cb){
@@ -149,14 +108,14 @@ gulp.task('sass', plugins.util.env.prod ? sassProd : sassDev);
 
 
 /**************************************************
- * Javascript sequences
+ * Javascript task sequences
  **************************************************/
 
 var jsDev  = function(cb){
 	plugins.sequence('concatjs', config.inject?'inject':'', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'minjs', config.inject?'inject':'', config.clean?'clean':'', cb);
+	plugins.sequence('concatjs', 'strip', 'minjs', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);

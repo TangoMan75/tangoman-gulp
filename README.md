@@ -31,32 +31,6 @@ For example you don't want your prefix task to start before sass compilation has
 Fantastic plugin `gulp-sequence` [https://www.npmjs.com/package/gulp-sequence](https://www.npmjs.com/package/gulp-sequence) allows to easily create macro sets of tasks **in a specified sequence**.
 
 
-
-Browser synchronisation with Browser Sync
------------------------------------------
-
-Having the ability to refresh automatically your browser while you're developping is a huge time saver.
-Don't bother refreshing your browser or hitting `f5` on your keboard ten million times a day:
-
-Awesome plugin `Browser Sync` [https://www.npmjs.com/package/browser-sync](https://www.npmjs.com/package/browser-sync) does it for you everytime you save your source files.
-
-
-
-Browser synchronisation with Live Reload
-----------------------------------------
-
-In some cases, for example if you're developping a **symfony project** [Live Reload](https://www.npmjs.com/package/gulp-livereload) might be a better option.
-In order for it to work, inesrt this code inside your `base.html.twig`.
-
-```twig
-// src/Acme/Bundle/FrontendBundle/Resources/views/base.html.twig
-
-{% if app.environment == 'dev' %}
-    <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
-{% endif %}
-```
-
-
 Generate source maps
 --------------------
 
@@ -70,11 +44,11 @@ How to use
 Installation
 ------------
 
- - 1. You need to download and install [Node.js](https://nodejs.org/en) first.
- - 2. Then install Gulp, **TLDR: Run following command:** `$ npm install --global gulp-cli`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
- - 3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
- - 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
- - 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
+1. Download and install [Node.js](https://nodejs.org/en) first.
+2. Install Gulp, **TLDR: Run following command:** `$ npm install gulp-cli -g`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
+4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
+5. Open a command window in your web directory, and enjoy (See below for availlable commands)
 
 
 
@@ -117,36 +91,34 @@ If you don't want to inject generated files inside your html, disable with :
 ```
 This value is used by task sequences inside _index.js_.
 
+If you need gulp-inject to generate relative pathes in your html.
+```json
+	"relative": true,
+```
+If you need to clean your destination folder (will remove all non-minified file in production mode)
+```json
+	"clean": true,
+```
+
 --------------------------------------------------
 
 #### Source and destination folders
 
 ```json
 	"src": {
-		"src": "./src",
-		"css": "./src/css",
-		"scss": "./src/scss",
-		"js": "./src/js",
-		"img": "./src/img",
-		"fonts": "./src/fonts",
-		"assets": "./src/assets",
-		"vendor": "./src/vendor",
-		"index": "./src/index.html"
+		"src"    : "./src",
+		"css"    : "./src/css",
+		"scss"   : "./src/scss",
+		"js"     : "./src/js",
+		"index"  : "./src/index.html"
 	},
 	"dest": {
-		"dest": "./dist",
-		"css": "./dist/css",
-		"scss": "./dist/scss",
-		"js": "./dist/js",
-		"img": "./dist/img",
-		"fonts": "./dist/fonts",
-		"assets": "./dist/assets",
-		"vendor": "./dist/vendor",
-		"doc": "./doc",
-		"temp": "./temp",
-		"test": "./test",
-		"index": "./index.html"
-	},
+		"dest"   : "./dist",
+		"css"    : "./dist/css",
+		"js"     : "./dist/js",
+		"doc"    : "./dist/doc",
+		"index"  : "./dist/index.html"
+	}
 ```
 
 
@@ -157,13 +129,11 @@ Availlable commands
 Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
 Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks. (Notice double dash.)
 
- - `$ gulp assets`    : Copies all assets/vendor from your source folder into distribution folder.
  - `$ gulp clean`     : Deletes all files that are not minified in the dist folder.
  - `$ gulp concatcss` : Concatenates all .css files.
  - `$ gulp concatjs`  : Concatenates all .js files.
  - `$ gulp csscomb`   : Formats CSS.
  - `$ gulp dump`      : Dumps config and plugins variables in console.
- - `$ gulp imagemin`  : Optimize PNG, JPEG, GIF and SVG images.
  - `$ gulp inject`    : Injects minified js and css files into html.
  - `$ gulp mincss`    : Minifies CSS.
  - `$ gulp minjs`     : Minifies javascript.
@@ -180,8 +150,6 @@ Sequences
 
  - `$ gulp`        : Starts default sequence. Compiles sass, appends vendor prefixes, combs css, minifies css, injects css and js, and cleans dist directory.
  - `$ gulp watch`  : Starts watcher on CSS, JS, IMG, and HTML files.
- - `$ gulp sync`   : Starts watcher and browser syncronisation with BrowserSync plugin.
- - `$ gulp reload` : Starts watcher and browser syncronisation with LiveReload plugin.
  - `$ gulp sass`   : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
  - `$ gulp css`    : Appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
  - `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
@@ -208,11 +176,9 @@ Included plugins
  - [gulp](https://www.npmjs.com/package/gulp)
  - [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
  - [gulp-beautify](https://www.npmjs.com/package/gulp-beautify)
- - [gulp-changed](https://www.npmjs.com/package/gulp-changed)
  - [gulp-concat](https://www.npmjs.com/package/gulp-concat)
  - [gulp-csscomb](https://www.npmjs.com/package/gulp-csscomb)
  - [gulp-cssnano](https://www.npmjs.com/package/gulp-cssnano)
- - [gulp-imagemin](https://www.npmjs.com/package/gulp-imagemin)
  - [gulp-inject](https://www.npmjs.com/package/gulp-inject)
  - [gulp-load](https://www.npmjs.com/package/gulp-load)
  - [gulp-notify](https://www.npmjs.com/package/gulp-notify)
@@ -248,8 +214,7 @@ And if you feel like it, branch, commit and make a pull request to share your ta
 Known bugs
 ==========
 
-It seems like, [Browser Sync](https://www.npmjs.com/package/browser-sync) freezes from time to time for some reason. Restart Gulp for it to work again properly.
-And [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) seems to remove embedded sourcemaps!
+Seems like [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) removes embedded sourcemaps!
 
 
 
