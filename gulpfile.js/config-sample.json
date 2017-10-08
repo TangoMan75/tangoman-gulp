@@ -5,7 +5,7 @@
 	},
 	"folderName" : "dist",
 	"inject"     : false,
-	"relative"   : true,
+	"relative"   : false,
 	"clean"      : false,
 	"src": {
 		"src"    : "./src",

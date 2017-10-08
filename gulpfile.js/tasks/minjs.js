@@ -1,8 +1,8 @@
 /**
- * Minifies javascript
+ * Minifies javascript from 'dest' folder
  * 
- * @version  1.0.1
- * @author   Matthias Morin <tangoman@free.fr>
+ * @version  2.0.0
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 /**
@@ -28,9 +28,9 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.src.js + '/*.js',
-			'!' + config.src.js + '/_*.js',
-			'!' + config.src.js + '/*.min.js',
+			config.dest.js + '/*.js',
+			'!' + config.dest.js + '/_*.js',
+			'!' + config.dest.js + '/*.min.js',
 		];
 
 		gulp.src(arSrc)

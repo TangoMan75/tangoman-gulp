@@ -7,7 +7,7 @@
  *
  * @version  1.0.0
  * @licence  MIT
- * @author   Matthias Morin <tangoman@free.fr>
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 
@@ -82,10 +82,10 @@ gulp.task('watch',      getTask('watch'));
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('renamecss', 'csscomb', config.inject?'inject':'', cb);
+	plugins.sequence('csscomb', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('prefix', 'csscomb', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
+	plugins.sequence('csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
@@ -97,10 +97,10 @@ gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
  **************************************************/
 
 var sassDev  = function(cb){
-	plugins.sequence('sasscomp', 'csscomb', 'renamecss', config.inject?'inject':'', cb);
+	plugins.sequence('sasscomp', 'csscomb', config.inject?'inject':'', cb);
 };
 var sassProd = function(cb){
-	plugins.sequence('sasscomp', 'prefix', 'csscomb', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
+	plugins.sequence('sasscomp', 'csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('sass', plugins.util.env.prod ? sassProd : sassDev);
@@ -127,10 +127,10 @@ gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['sass', 'prefix', 'csscomb', 'concatjs'], config.inject?'inject':'', cb);
+	plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sass', 'concatjs'], ['prefix', 'strip'], ['minjs', 'mincss'], config.inject?'inject':'', config.clean?'clean':'', cb);
+	plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', ['prefix', 'strip'], ['mincss', 'minjs'], config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);

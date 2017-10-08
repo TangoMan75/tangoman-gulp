@@ -1,8 +1,8 @@
 /**
- * Formats all CSS in the distribution folder
+ * Formats all CSS from both 'src' and 'dest' folders
  * 
- * @version  1.0.3
- * @author   Matthias Morin <tangoman@free.fr>
+ * @version  1.1.0
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 // https://www.npmjs.com/package/gulp-csscomb
@@ -42,6 +42,7 @@ module.exports = function(gulp, plugins, config){
 		gulp.src(config.src.css + '/*.css')
 		.pipe(plugins.csscomb(ojbSetting))
 		.pipe(gulp.dest(config.src.css))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb)
 	};
 };

@@ -1,10 +1,10 @@
 /**
- * Compiles SASS and SCSS files, and generates sourcemap
+ * Compiles SASS and SCSS files to both 'src' and 'dest' folders, and generates sourcemap
  *
  * Use `gulp sass --prod` to disable sourcemaps
  *
- * @version  2.0.2
- * @author   Matthias Morin <tangoman@free.fr>
+ * @version  2.1.0
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 /**
@@ -44,6 +44,7 @@ module.exports = function(gulp, plugins, config){
 			gulp.src(config.src.scss + '/**/*.{sass,scss}')
 			.pipe(plugins.plumber({ errorHandler: handleError }))
 			.pipe(plugins.sass(objOptions))
+			.pipe(gulp.dest(config.src.css))
 			.pipe(gulp.dest(config.dest.css))
 			.on('end', cb);
 		} else {
@@ -54,6 +55,7 @@ module.exports = function(gulp, plugins, config){
 			.pipe(plugins.sass(objOptions))
 			.pipe(gulp.dest(config.src.css))
 			.pipe(plugins.sourcemaps.write())
+			.pipe(gulp.dest(config.src.css))
 			.pipe(gulp.dest(config.dest.css))
 			.on('end', cb);
 		}

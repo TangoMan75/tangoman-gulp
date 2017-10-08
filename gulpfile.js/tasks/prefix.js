@@ -3,7 +3,7 @@
  * 
  * @note     Attention: Autoprefixer removes embedded sourcemaps!
  * @version  1.0.1
- * @author   Matthias Morin <tangoman@free.fr>
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 /**
@@ -55,6 +55,7 @@ module.exports = function(gulp, plugins, config){
 		.pipe(plugins.plumber({ errorHandler: handleError }))
 		.pipe(plugins.autoprefixer(objOptions))
 		.pipe(gulp.dest(config.src.css))
+		.pipe(gulp.dest(config.dest.css))
 		.on('end', cb);
 	};
 };

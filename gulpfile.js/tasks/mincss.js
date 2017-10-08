@@ -1,8 +1,8 @@
 /**
  * Minifies CSS with cssnano
  * 
- * @version  1.0.0
- * @author   Matthias Morin <tangoman@free.fr>
+ * @version  2.0.0
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 // https://www.npmjs.com/package/gulp-cssnano
@@ -17,8 +17,8 @@ module.exports = function(gulp, plugins, config){
 		 * @type {Array}
 		 */
 		var arSrc = [
-			config.src.css + '/*.css',
-			'!' + config.src.css + '/*.min.css',
+			config.dest.css + '/*.css',
+			'!' + config.dest.css + '/*.min.css',
 		];
 
 		gulp.src(arSrc)

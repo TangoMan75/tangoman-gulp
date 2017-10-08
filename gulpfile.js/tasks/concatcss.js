@@ -2,7 +2,7 @@
  * Concatenates all CSS files from your distribution folder
  *
  * @version  1.1.0
- * @author   Matthias Morin <tangoman@free.fr>
+ * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
 /**
