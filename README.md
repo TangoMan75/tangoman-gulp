@@ -4,7 +4,6 @@ TangoMan Gulp Boilerplate
 Set up your front-end Gulp workflow in minutes
 ----------------------------------------------
 
-
 Why do I need Gulp?
 ===================
 
@@ -12,12 +11,9 @@ Gulp is a javascript task manager that allows to automate repetitive front-end t
 
 There are a ton of [Gulp plugins](http://gulpjs.com/plugins) to help solve almost any problem you can imagine.
 
-
 Easy gulpfile management
 ========================
 **TangoMan Gulp Boilerplate** makes your gulpfile.js easier to manage. Split your tasks into easy to spot smaller files instead of scrolling into one super long _gulpfile.js_.
-
-
 
 Features
 ========
@@ -30,13 +26,10 @@ For example you don't want your prefix task to start before sass compilation has
 
 Fantastic plugin `gulp-sequence` [https://www.npmjs.com/package/gulp-sequence](https://www.npmjs.com/package/gulp-sequence) allows to easily create macro sets of tasks **in a specified sequence**.
 
-
 Generate source maps
 --------------------
 
 [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) will automatically generate source maps for your sass / scss files, except in production mode.
-
-
 
 How to use
 ==========
@@ -49,8 +42,6 @@ Installation
 3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
-
-
 
 Configuration
 -------------
@@ -68,10 +59,10 @@ Inside your `./gulpfile.js/config.json`
 
 You can configure your project name and version:
 ```json
-	"project": {
-		"name": "main",
-		"version": "0.1.0"
-	},
+    "project": {
+        "name": "main",
+        "version": "0.1.0"
+    },
 ```
 These values are used by _concat.js_ to generate concatenated file name (eg: _main-1.0.0.js_).
 
@@ -81,23 +72,23 @@ These values are used by _concat.js_ to generate concatenated file name (eg: _ma
 
 You can configure the name of the project web directory:
 ```json
-	"folderName": "dist",
+    "folderName": "dist",
 ```
 This value is used by _inject.js_ to rewrite correct relative pathes in html.
 
 If you don't want to inject generated files inside your html, disable with :
 ```json
-	"inject": false,
+    "inject": false,
 ```
 This value is used by task sequences inside _index.js_.
 
 If you need gulp-inject to generate relative pathes in your html.
 ```json
-	"relative": true,
+    "relative": true,
 ```
 If you need to clean your destination folder (will remove all non-minified file in production mode)
 ```json
-	"clean": true,
+    "clean": true,
 ```
 
 --------------------------------------------------
@@ -105,23 +96,21 @@ If you need to clean your destination folder (will remove all non-minified file 
 #### Source and destination folders
 
 ```json
-	"src": {
-		"src"    : "./src",
-		"css"    : "./src/css",
-		"scss"   : "./src/scss",
-		"js"     : "./src/js",
-		"index"  : "./src/index.html"
-	},
-	"dest": {
-		"dest"   : "./dist",
-		"css"    : "./dist/css",
-		"js"     : "./dist/js",
-		"doc"    : "./dist/doc",
-		"index"  : "./dist/index.html"
-	}
+    "src": {
+        "src"    : "./src",
+        "css"    : "./src/css",
+        "scss"   : "./src/scss",
+        "js"     : "./src/js",
+        "index"  : "./src/index.html"
+    },
+    "dest": {
+        "dest"   : "./dist",
+        "css"    : "./dist/css",
+        "js"     : "./dist/js",
+        "doc"    : "./dist/doc",
+        "index"  : "./dist/index.html"
+    }
 ```
-
-
 
 Availlable commands
 -------------------
@@ -143,8 +132,6 @@ Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply 
  - `$ gulp strip`     : Removes console.logs from javascript.
  - `$ gulp uncss`     : Remove unused CSS selectors.
 
-
-
 Sequences
 ---------
 
@@ -154,8 +141,6 @@ Sequences
  - `$ gulp css`    : Appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
  - `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
 
-
-
 Developpement or production settings
 ------------------------------------
 
@@ -163,8 +148,6 @@ Developpement or production settings
 For example you don't need minification or prefixing during developping phase, while you may want to clean your _dist_ folder or to avoid making sourcemaps availlable for your final production.
 
 Use `--prod` argument to your tasks to run Gulp with specific production settings. (Notice double dash.)
-
-
 
 Included plugins
 ----------------
@@ -197,8 +180,6 @@ Included plugins
 
 [Check out these other cool gulp plugins](GULP_PLUGINS.md)
 
-
-
 Versatile
 =========
 
@@ -209,14 +190,10 @@ Your Gulps plugin should be loaded automatically and will be availlable in the `
 
 And if you feel like it, branch, commit and make a pull request to share your task module with the world!
 
-
-
 Known bugs
 ==========
 
 Seems like [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) removes embedded sourcemaps!
-
-
 
 Inspiration
 ===========
@@ -233,14 +210,10 @@ Other cool Gulp boilerpates :
 - [ryanbensonmedia](http://www.ryanbensonmedia.com) [Harvest](https://github.com/ryanbenson/Harvest)
 - [gulp-frontend-boilerplate](https://github.com/dmnsgn/gulp-frontend-boilerplate)
 
-
-
 Note
 ====
 
 If you find any bug please report here : [Issues](https://github.com/TangoMan75/tangoman-gulp/issues/new)
-
-
 
 License
 =======
