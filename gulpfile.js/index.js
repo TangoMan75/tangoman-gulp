@@ -10,24 +10,20 @@
  * @author   Matthias Morin <matthias.morin@gmail.com>
  */
 
-
-
 /**************************************************
  * Requires
  **************************************************/
 
 // https://www.npmjs.com/package/gulp
-var gulp = require('gulp');	// The streaming build system
+var gulp = require('gulp'); // The streaming build system
 
 // Automatically load any gulp plugins in your package.json
 // https://www.npmjs.com/package/gulp-load-plugins
 // Which is way more efficient than https://www.npmjs.com/package/gulp-require-dir method
-var plugins = require('gulp-load-plugins')();	
+var plugins = require('gulp-load-plugins')();
 
 // Loads gulpfile configuration
 config = require('./config.json');
-
-
 
 /**************************************************
  * getTask
@@ -44,17 +40,15 @@ config = require('./config.json');
  */
 function getTask(task){
 
-	/**
-	 * getTask Configuration
-	 *
-	 * @type {String} Tasks source folder
-	 */
-	var tasksDirectory = './tasks/';
+    /**
+     * getTask Configuration
+     *
+     * @type {String} Tasks source folder
+     */
+    var tasksDirectory = './tasks/';
 
-	return require(tasksDirectory + task)(gulp, plugins, config);
+    return require(tasksDirectory + task)(gulp, plugins, config);
 };
-
-
 
 /**************************************************
  * Individual tasks
@@ -75,62 +69,54 @@ gulp.task('strip',      getTask('strip'));
 gulp.task('uncss',      getTask('uncss'));
 gulp.task('watch',      getTask('watch'));
 
-
-
 /**************************************************
  * CSS task sequences
  **************************************************/
 
 var cssDev  = function(cb){
-	plugins.sequence('csscomb', config.inject?'inject':'', cb);
+    plugins.sequence('csscomb', config.inject?'inject':'', cb);
 };
 var cssProd = function(cb){
-	plugins.sequence('csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
+    plugins.sequence('csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('css', plugins.util.env.prod ? cssProd : cssDev);
-
-
 
 /**************************************************
  * SASS task sequences
  **************************************************/
 
 var sassDev  = function(cb){
-	plugins.sequence('sasscomp', 'csscomb', config.inject?'inject':'', cb);
+    plugins.sequence('sasscomp', 'csscomb', config.inject?'inject':'', cb);
 };
 var sassProd = function(cb){
-	plugins.sequence('sasscomp', 'csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
+    plugins.sequence('sasscomp', 'csscomb', 'prefix', 'mincss', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('sass', plugins.util.env.prod ? sassProd : sassDev);
-
-
 
 /**************************************************
  * Javascript task sequences
  **************************************************/
 
 var jsDev  = function(cb){
-	plugins.sequence('concatjs', config.inject?'inject':'', cb);
+    plugins.sequence('concatjs', config.inject?'inject':'', cb);
 };
 var jsProd = function(cb){
-	plugins.sequence('concatjs', 'strip', 'minjs', config.inject?'inject':'', config.clean?'clean':'', cb);
+    plugins.sequence('concatjs', 'strip', 'minjs', config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('js', plugins.util.env.prod ? jsProd : jsDev);
-
-
 
 /**************************************************
  * Default Task
  **************************************************/
 
 var defaultDev  = function(cb){
-	plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', config.inject?'inject':'', cb);
+    plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', config.inject?'inject':'', cb);
 };
 var defaultProd = function(cb){
-	plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', ['prefix', 'strip'], ['mincss', 'minjs'], config.inject?'inject':'', config.clean?'clean':'', cb);
+    plugins.sequence(['sasscomp', 'concatjs'], 'csscomb', ['prefix', 'strip'], ['mincss', 'minjs'], config.inject?'inject':'', config.clean?'clean':'', cb);
 };
 
 gulp.task('default', plugins.util.env.prod ? defaultProd : defaultDev);

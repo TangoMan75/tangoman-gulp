@@ -7,13 +7,13 @@
 
 // https://www.npmjs.com/package/gulp-watch
 module.exports = function(gulp, plugins, config){
-	return function(){
+    return function(){
 
-		console.log('\r\n\r\n----------> Watching');
+        console.log('\r\n\r\n----------> Watching');
 
-		// Changes in the src directory
-		gulp.watch(config.src.js + '/**/*.js', ['js']);
-		gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['sass']);
-		gulp.watch(config.src.index, ['inject']);
-	};
+        // Changes in the src directory
+        gulp.watch(config.src.js + '/**/*.js', ['js']);
+        gulp.watch(config.src.scss + '/**/*.{sass,scss}', ['sass']);
+        gulp.watch(config.src.index, ['default']);
+    };
 };
