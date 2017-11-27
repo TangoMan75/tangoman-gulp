@@ -42,6 +42,7 @@ Installation
 3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
 4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
 5. Open a command window in your web directory, and enjoy (See below for availlable commands)
+6. To check if *Gulp* installed correctly enter `gulp -v`
 
 Configuration
 -------------
