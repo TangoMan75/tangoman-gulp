@@ -13,7 +13,8 @@ There are a ton of [Gulp plugins](http://gulpjs.com/plugins) to help solve almos
 
 Easy gulpfile management
 ========================
-**TangoMan Gulp Boilerplate** makes your gulpfile.js easier to manage. Split your tasks into easy to spot smaller files instead of scrolling into one super long _gulpfile.js_.
+
+**TangoMan Gulp Boilerplate** makes your `gulpfile.js` easier to manage. Split your tasks into easy to spot smaller files instead of scrolling into one super long _gulpfile.js_.
 
 Features
 ========
@@ -31,21 +32,53 @@ Generate source maps
 
 [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) will automatically generate source maps for your sass / scss files, except in production mode.
 
-How to use
-==========
-
 Installation
-------------
+============
 
-1. Download and install [Node.js](https://nodejs.org/en) first.
-2. Install Gulp, **TLDR: Run following command:** `$ npm install gulp-cli -g`, or have a look at this page : [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-3. Extract **TangoMan Gulp Boilerplate** files into your project **web** directory.
-4. Once you've installed project dependencies with `$ npm install`, you should be ready to go right out the the box in most cases. (Do not forget to _gitignore_ node_modules when necessary.)
-5. Open a command window in your web directory, and enjoy (See below for availlable commands)
-6. To check if *Gulp* installed correctly enter `$ gulp -v`
+Step 1 : Download and install Node.js
+-------------------------------------
+
+I would recommend LTS version which will suit most situations. You can download it here [Node.js](https://nodejs.org/en)
+
+Step 2. Install Gulp globally
+-----------------------------
+
+Open a command console and enter following command to download and install the latest stable version:
+```bash
+$ npm install gulp-cli -g
+```
+If you want more detailled information on intallation process, have a look at the [Getting Started](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) chapter of the [Gulpjs](https://github.com/gulpjs) documentaion on github.
+
+Enter following command to check if *Gulp* installed correctly:
+```bash
+$ gulp -v
+```
+
+Step 3. Install TangoMan Gulp Boilerplate
+-----------------------------------------
+
+Download and extract **TangoMan Gulp Boilerplate** files into your project **web** directory. Or open a command console, enter your project **web** directory and execute the following command to download the latest stable version of **TangoMan Gulp Boilerplate**:
+```bash
+$ git clone https://github.com/TangoMan75/tangoman-gulp.git
+```
+
+Step 4. Install project dependencies
+------------------------------------
+
+Open a command console, enter your project **web** directory and execute the following command to download the latest stable version of required **Gulp** dependencies:
+```bash
+$ npm install
+```
+(Do not forget to _gitignore_ `node_modules` folder in your project root.)
+
+Step 5. Create configuration file
+---------------------------------
+
+Copy and rename template `config-sample.json` into `config.json`, and edit `config.json` file to fit your project needs.
+
 
 Configuration
--------------
+=============
 
 **TangoMan Gulp Boilerplate** allows for easy gulp configuration.
 If you need to work with a different directory structure, you can easily personalize settings in the _config.json_ file at the root of _gulpfile.js_ folder.
@@ -113,34 +146,36 @@ If you need to clean your destination folder (will remove all non-minified file 
     }
 ```
 
+How to use
+==========
+
 Availlable commands
 -------------------
 
 Enter `$ gulp watch` to start gulp listening to any change in your source directory and start working without worring about lauching tasks indiviually...
 Do a `$ gulp --prod` before you commit to clean the _dist_ directory, and apply specific _production_ tasks. (Notice double dash.)
 
- - `$ gulp clean`     : Deletes all files that are not minified in the dist folder.
- - `$ gulp concatcss` : Concatenates all .css files.
- - `$ gulp concatjs`  : Concatenates all .js files.
- - `$ gulp csscomb`   : Formats CSS.
- - `$ gulp dump`      : Dumps config and plugins variables in console.
- - `$ gulp inject`    : Injects minified js and css files into html.
- - `$ gulp mincss`    : Minifies CSS.
- - `$ gulp minjs`     : Minifies javascript.
- - `$ gulp prefix`    : Adds vendor prefixes to CSS.
- - `$ gulp sasscomp`  : Compiles SASS and SCSS files, and generates sourcemap.
- - `$ gulp sassdoc`   : Generates SASS documentation.
- - `$ gulp strip`     : Removes console.logs from javascript.
- - `$ gulp uncss`     : Remove unused CSS selectors.
+- `$ gulp clean`     : Deletes all files that are not minified in the dist folder.
+- `$ gulp concatcss` : Concatenates all .css files.
+- `$ gulp concatjs`  : Concatenates all .js files.
+- `$ gulp csscomb`   : Formats CSS.
+- `$ gulp dump`      : Dumps config and plugins variables in console.
+- `$ gulp inject`    : Injects minified js and css files into html.
+- `$ gulp mincss`    : Minifies CSS.
+- `$ gulp minjs`     : Minifies javascript.
+- `$ gulp prefix`    : Adds vendor prefixes to CSS.
+- `$ gulp sasscomp`  : Compiles SASS and SCSS files, and generates sourcemap.
+- `$ gulp strip`     : Removes console.logs from javascript.
+- `$ gulp uncss`     : Remove unused CSS selectors.
 
 Sequences
 ---------
 
- - `$ gulp`        : Starts default sequence. Compiles sass, appends vendor prefixes, combs css, minifies css, injects css and js, and cleans dist directory.
- - `$ gulp watch`  : Starts watcher on CSS, JS, IMG, and HTML files.
- - `$ gulp sass`   : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
- - `$ gulp css`    : Appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
- - `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
+- `$ gulp`        : Starts default sequence. Compiles sass, appends vendor prefixes, combs css, minifies css, injects css and js, and cleans dist directory.
+- `$ gulp watch`  : Starts watcher on CSS, JS, and HTML files.
+- `$ gulp sass`   : Compiles sass, appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
+- `$ gulp css`    : Appends vendor prefixes, combs css, minifies css, injects css, and cleans dist directory.
+- `$ gulp js`     : Concatenates javascript, minifies js, injects js, and cleans dist directory.
 
 Developpement or production settings
 ------------------------------------
@@ -155,29 +190,34 @@ Included plugins
 
 **TangoMan Gulp Boilerplate** package.json includes the following awesome plugins :
 
- - [browser-sync](https://www.npmjs.com/package/browser-sync)
- - [del](https://www.npmjs.com/package/del)
- - [gulp](https://www.npmjs.com/package/gulp)
- - [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
- - [gulp-beautify](https://www.npmjs.com/package/gulp-beautify)
- - [gulp-concat](https://www.npmjs.com/package/gulp-concat)
- - [gulp-csscomb](https://www.npmjs.com/package/gulp-csscomb)
- - [gulp-cssnano](https://www.npmjs.com/package/gulp-cssnano)
- - [gulp-inject](https://www.npmjs.com/package/gulp-inject)
- - [gulp-load](https://www.npmjs.com/package/gulp-load)
- - [gulp-notify](https://www.npmjs.com/package/gulp-notify)
- - [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
- - [gulp-rename](https://www.npmjs.com/package/gulp-rename)
- - [gulp-sass](https://www.npmjs.com/package/gulp-sass)
- - [gulp-sequence](https://www.npmjs.com/package/gulp-sequence)
- - [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
- - [gulp-strip](https://www.npmjs.com/package/gulp-strip)
- - [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
- - [gulp-uncss](https://www.npmjs.com/package/gulp-uncss)
- - [gulp-util](https://www.npmjs.com/package/gulp-util)
- - [gulp-watch](https://www.npmjs.com/package/gulp-watch)
- - [require-dir](https://www.npmjs.com/package/require-dir)
- - [sassdoc](https://www.npmjs.com/package/sassdoc)
+- [del](https://www.npmjs.com/package/del)
+- [gulp](https://www.npmjs.com/package/gulp)
+- [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer)
+- [gulp-beautify](https://www.npmjs.com/package/gulp-beautify)
+- [gulp-concat](https://www.npmjs.com/package/gulp-concat)
+- [gulp-csscomb](https://www.npmjs.com/package/gulp-csscomb)
+- [gulp-cssnano](https://www.npmjs.com/package/gulp-cssnano)
+- [gulp-inject](https://www.npmjs.com/package/gulp-inject)
+- [gulp-load](https://www.npmjs.com/package/gulp-load)
+- [gulp-notify](https://www.npmjs.com/package/gulp-notify)
+- [gulp-plumber](https://www.npmjs.com/package/gulp-plumber)
+- [gulp-rename](https://www.npmjs.com/package/gulp-rename)
+- [gulp-sass](https://www.npmjs.com/package/gulp-sass)
+- [gulp-sequence](https://www.npmjs.com/package/gulp-sequence)
+- [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps)
+- [gulp-strip](https://www.npmjs.com/package/gulp-strip)
+- [gulp-uglify](https://www.npmjs.com/package/gulp-uglify)
+- [gulp-uncss](https://www.npmjs.com/package/gulp-uncss)
+- [gulp-util](https://www.npmjs.com/package/gulp-util)
+- [gulp-watch](https://www.npmjs.com/package/gulp-watch)
+- [require-dir](https://www.npmjs.com/package/require-dir)
+
+Note that I've removed following gulp plugins from `package.json`:
+
+- [browser-sync](https://www.npmjs.com/package/browser-sync)
+- [sassdoc](https://www.npmjs.com/package/sassdoc)
+
+Since they do not work as expected and are source of many bugs and crashes.
 
 [Check out these other cool gulp plugins](GULP_PLUGINS.md)
 
