@@ -59,7 +59,7 @@ Step 3. Install TangoMan Gulp Boilerplate
 
 Download and extract **TangoMan Gulp Boilerplate** files into your project **web** directory. Or open a command console, enter your project **web** directory and execute the following command to download the latest stable version of **TangoMan Gulp Boilerplate**:
 ```bash
-$ git clone https://github.com/TangoMan75/tangoman-gulp.git
+$ git clone https://github.com/TangoMan75/tangoman-gulp.git .
 ```
 
 Step 4. Install project dependencies
